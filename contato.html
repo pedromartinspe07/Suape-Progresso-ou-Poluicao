@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Suape: Progresso ou Poluição?</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Suape: Progresso ou Poluição?</a>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projeto.html">O Projeto</a></li>
+                <li><a href="referencial.html">Referencial</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="publicacoes.html">Publicações</a></li>
+                <li><a href="dados.html">Dados</a></li>
+                <li><a href="glossario.html">Glossário</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <h1>Fale Conosco</h1>
+            <section class="content-section contact-section">
+                <h2>Envie uma Mensagem</h2>
+                <p>Valorizamos o seu feedback. Use o formulário abaixo para entrar em contato com nossa equipe de pesquisa. Seus comentários, dúvidas ou sugestões são importantes para nós.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Enviar Mensagem</button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
+            </section>
+            
+            <section class="content-section contact-info">
+                <h2>Informações Adicionais</h2>
+                <p>Você também pode nos encontrar nas seguintes plataformas e localizações:</p>
+                <div class="contact-details">
+                    <div class="contact-card">
+                        <img src="assets/images/email-icon.svg" alt="Ícone de Email">
+                        <h3>E-mail</h3>
+                        <p>Para questões acadêmicas ou parcerias, entre em contato diretamente conosco.</p>
+                        <a href="mailto:tcc.suape@escola.edu.br">tcc.suape@escola.edu.br</a>
+                    </div>
+                    <div class="contact-card">
+                        <img src="assets/images/location-icon.svg" alt="Ícone de Localização">
+                        <h3>Localização</h3>
+                        <p>Nossa base de pesquisa está no campus do Colégio [Nome do seu Colégio].</p>
+                        <address>
+                            Rua Exemplo, 123<br>
+                            Recife, PE, 50000-000<br>
+                            Brasil
+                        </address>
+                    </div>
+                    <div class="contact-card">
+                        <img src="assets/images/social-icon.svg" alt="Ícone de Redes Sociais">
+                        <h3>Redes Sociais</h3>
+                        <p>Siga-nos para as últimas atualizações sobre a pesquisa e eventos.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Instagram"><img src="assets/images/instagram-icon.svg" alt="Instagram"></a>
+                            <a href="#" aria-label="Facebook"><img src="assets/images/facebook-icon.svg" alt="Facebook"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Sandra, Jennifer, Jaqueline, Giovanna, Julya, Júlia, Bruna.</p>
+        <p>Orientação: Prof. André</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

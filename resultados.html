@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Suape: Progresso ou Poluição?</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Suape: Progresso ou Poluição?</a>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projeto.html">O Projeto</a></li>
+                <li><a href="referencial.html">Referencial</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="publicacoes.html">Publicações</a></li>
+                <li><a href="dados.html">Dados</a></li>
+                <li><a href="glossario.html">Glossário</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <h1>Análise e Conclusões</h1>
+
+            <section class="content-section">
+                <h2>Resumo Executivo</h2>
+                <p>Nesta seção, apresentamos os resultados obtidos por meio de nossa pesquisa. Nossa análise dos dados oficiais e de estudos secundários revela uma clara correlação entre a expansão industrial de Suape e o aumento de indicadores de poluição e degradação ambiental. Os gráficos interativos a seguir ilustram essas tendências, fornecendo uma base visual para nossas conclusões.</p>
+            </section>
+
+            <section class="content-section chart-container">
+                <h2>Gráfico 1: Crescimento Econômico vs. Poluição do Ar</h2>
+                <p>Este gráfico de linha compara o **Produto Interno Bruto (PIB)** da região de Suape com os **níveis de poluentes atmosféricos** (como óxidos de enxofre e nitrogênio) ao longo da última década. A curva do PIB, que reflete o crescimento industrial, é confrontada com a linha dos poluentes, permitindo visualizar a relação entre desenvolvimento e impacto na qualidade do ar. Observa-se que, à medida que a atividade econômica cresceu, a concentração de poluentes seguiu uma tendência de alta.</p>
+                <canvas id="airPollutionChart"></canvas>
+                <p class="chart-caption"><strong>Análise:</strong> Os dados indicam uma forte correlação positiva entre o crescimento econômico e a poluição do ar. Esse achado sugere que, apesar dos avanços tecnológicos, as atividades industriais do Complexo de Suape continuam a exercer uma pressão significativa sobre a atmosfera local.</p>
+            </section>
+
+            <section class="content-section chart-container">
+                <h2>Gráfico 2: Degradação de Manguezais</h2>
+                <p>Este gráfico de barras mostra a **variação da área de manguezal** na região de Suape em dois momentos: antes e depois da expansão do Complexo. Os dados foram obtidos a partir de análises de imagens de satélite. A barra "Área Original" representa a extensão do ecossistema antes do grande boom industrial, enquanto a barra "Área Atual" reflete a redução observada.</p>
+                <canvas id="mangroveChart"></canvas>
+                <p class="chart-caption"><strong>Análise:</strong> A diminuição da área de manguezal é um dos resultados mais alarmantes de nossa pesquisa. Como um dos ecossistemas mais importantes para a biodiversidade e como barreira natural contra inundações, a perda de manguezais tem consequências graves e de longo prazo para a saúde ambiental da região.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Conclusão Final</h2>
+                <p>Nossos resultados confirmam que o progresso econômico de Suape, embora notável, não veio sem um custo ambiental considerável. A correlação direta entre o crescimento do polo industrial e o aumento da poluição do ar e a degradação dos manguezais demonstra a urgência de políticas de desenvolvimento mais sustentáveis e de tecnologias de mitigação mais eficazes. Este trabalho aponta para a necessidade de um monitoramento contínuo e de uma gestão ambiental mais rigorosa para que o desenvolvimento de Suape possa, de fato, se alinhar com a sustentabilidade. Esperamos que nossa pesquisa sirva como um ponto de partida para discussões futuras e ações concretas em prol do meio ambiente e das comunidades locais.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Sandra, Jennifer, Jaqueline, Giovanna, Julya, Júlia, Bruna.</p>
+        <p>Orientação: Prof. André</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
