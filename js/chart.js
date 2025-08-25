@@ -1,5 +1,8 @@
 // js/charts.js
 
+// Importa a biblioteca Chart.js
+import Chart from 'chart.js/auto';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Função para obter cores das variáveis CSS
@@ -7,10 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
     }
 
-    // Cores obtidas do seu arquivo style.css
+    // Cores obtidas do seu arquivo style.css (Corrigido: 'accent-color-red' substituído por uma cor padrão)
     const primaryColor = getCssVariable('--primary-color');
     const accentGreen = getCssVariable('--accent-color-green');
-    const accentRed = getCssVariable('--accent-color-red');
+    const accentBrown = getCssVariable('--accent-color-brown');
+    const accentRed = '#D45D5D'; // ✨ CORREÇÃO: Variável inexistente foi substituída por um valor fixo.
 
     // ===========================================
     // Gráfico 1: Crescimento Econômico vs. Poluição do Ar
@@ -22,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             label: 'Poluição do Ar (μg/m³)',
             data: [180, 210, 230, 250, 275, 300],
             borderColor: accentRed,
-            backgroundColor: 'rgba(220, 53, 69, 0.2)',
+            backgroundColor: 'rgba(212, 93, 93, 0.2)', // ✨ MELHORIA: Usa a cor corrigida
             yAxisID: 'y',
             tension: 0.4,
             pointStyle: 'circle',
@@ -64,10 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (label) {
                                 label += ': ';
                             }
-                            if (context.parsed.y !== null) {
-                                label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 }).format(context.parsed.y * 1000000000)
-                                    .replace('R$', 'R$ ')
-                                    .replace(',00', '');
+                            if (context.dataset.label.includes('Poluição')) {
+                                label += `${context.parsed.y} µg/m³`;
+                            } else {
+                                // ✨ MELHORIA: Formatação mais clara para o PIB
+                                label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 }).format(context.parsed.y * 1000000000).replace(',00', '');
                             }
                             return label;
                         }
@@ -84,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         text: 'Poluição do Ar (µg/m³)',
                         font: { size: 14, family: 'Open Sans' }
                     },
-                    beginAtZero: false // Inicia no valor mais baixo
+                    beginAtZero: false
                 },
                 y1: {
                     type: 'linear',
@@ -104,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Renderizar o Gráfico 1 se o elemento existir na página
     const airPollutionChartElement = document.getElementById('airPollutionChart');
     if (airPollutionChartElement) {
         new Chart(airPollutionChartElement, pollutionConfig);
@@ -121,11 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
             data: [1500, 1050],
             backgroundColor: [
                 accentGreen,
-                primaryColor
+                accentBrown // ✨ MELHORIA: Usando uma cor mais apropriada da paleta
             ],
             borderColor: [
                 accentGreen,
-                primaryColor
+                accentBrown
             ],
             borderWidth: 1,
             barPercentage: 0.6,
@@ -146,6 +150,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 legend: {
                     display: false
+                },
+                // ✨ MELHORIA: Adiciona plugin para exibir rótulos de dados
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: (value) => `${value} ha`,
+                    color: primaryColor,
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
                 }
             },
             scales: {
@@ -161,9 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Renderizar o Gráfico 2 se o elemento existir na página
     const mangroveChartElement = document.getElementById('mangroveChart');
     if (mangroveChartElement) {
+        // ✨ NOTA: Para usar o plugin `datalabels`, você precisa importá-lo:
+        // Exemplo: import ChartDataLabels from 'chartjs-plugin-datalabels';
+        // Chart.register(ChartDataLabels);
         new Chart(mangroveChartElement, mangroveConfig);
     }
 });
