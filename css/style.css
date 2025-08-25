@@ -46,8 +46,8 @@ body {
 header {
     background-color: var(--primary-color);
     color: var(--light-bg);
-    padding: 1.5rem 0;
-    box-shadow: var(--shadow);
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -68,30 +68,74 @@ header nav {
     font-size: 1.5rem;
     color: var(--light-bg);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-header nav ul {
+.logo a:hover {
+    color: var(--accent-color-green);
+}
+
+header nav .nav-menu {
     list-style: none;
     display: flex;
+    gap: 2rem;
 }
 
-header nav ul li {
-    margin-left: 2rem;
-}
-
-header nav ul li a {
+header nav .nav-menu li a {
     color: var(--light-bg);
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
-    padding-bottom: 5px;
-    transition: color 0.3s, border-bottom 0.3s;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-header nav ul li a:hover,
-header nav ul li a.active-link {
+header nav .nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color-green);
+    transition: width 0.3s ease;
+}
+
+header nav .nav-menu li a:hover::after,
+header nav .nav-menu li a.active-link::after {
+    width: 100%;
+}
+
+header nav .nav-menu li a:hover,
+header nav .nav-menu li a.active-link {
     color: var(--accent-color-green);
-    border-bottom: 2px solid var(--accent-color-green);
+}
+
+/* Menu Hambúrguer (invisível em desktop) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-bg);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do botão de hambúrguer quando ativo */
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Conteúdo Principal */
@@ -107,7 +151,7 @@ main {
     box-shadow: var(--shadow);
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
     color: var(--primary-color);
     margin-bottom: 1rem;
@@ -125,6 +169,15 @@ h2 {
 
 p {
     margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-top: 2rem;
 }
 
 /* Footer */
@@ -543,8 +596,9 @@ ul, ol {
     font-weight: 700;
 }
 
+
 /* =======================================
-   5. Responsividade
+   5. Responsividade (Com o Menu Hambúrguer)
    ======================================= */
 @media (max-width: 768px) {
     .hero-content h1 {
@@ -556,19 +610,43 @@ ul, ol {
     }
 
     header nav {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
-    header nav ul {
+    header nav .nav-menu {
+        display: none;
         flex-direction: column;
-        align-items: center;
         width: 100%;
-        margin-top: 1rem;
+        text-align: center;
+        background-color: var(--primary-color);
+        padding-top: 1rem;
+        position: absolute;
+        top: 67px;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(-150%);
     }
 
-    header nav ul li {
-        margin: 0.5rem 0;
+    header nav .nav-menu.active {
+        display: flex;
+        transform: translateY(0);
+    }
+    
+    header nav .nav-menu li {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    header nav .nav-menu li a {
+        font-size: 1.2rem;
+        width: 100%;
+        display: block;
+    }
+
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
     }
 
     .mentor-card {
@@ -582,28 +660,4 @@ ul, ol {
     }
 }
 
-/* Estilos para o botão de Voltar ao Topo */
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--primary-color);
-    color: var(--light-bg);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-    z-index: 999;
-}
-
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
 
