@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Carregar o Modelo GLB
     const loader = new GLTFLoader();
     loader.load(
-        'assets/3d/lighthouse.glb',
+        'assets/3d/container_ship.glb',
         function (gltf) {
             const model = gltf.scene;
             model.scale.set(1.5, 1.5, 1.5);
