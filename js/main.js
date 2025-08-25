@@ -1,783 +1,88 @@
-/* Importação das fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Poppins:wght@300;400;500;600;700&display=swap');
+// js/main.js
 
-/* =======================================
-   1. Variáveis e Reset
-   ======================================= */
-:root {
-    /* Paleta de Cores de Natureza Digital */
-    --primary-color: #004d40; /* Verde Escuro da Floresta */
-    --secondary-color: #e8f5e9; /* Verde-Claro Acolhedor */
-    --tertiary-color: #4a6c62; /* Verde-Cinza Profundo */
-    --accent-color-green: #81c784; /* Verde Vivo da Planta */
-    --accent-color-brown: #a1887f; /* Marrom-Claro da Terra */
-    --text-color: #212121; /* Cinza Quase Preto */
-    --light-text-color: #f1f8e9; /* Verde-Claro para Texto em Fundo Escuro */
-    --background-light: #f9fbe7; /* Fundo de Seções em Creme */
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Animação de Scroll (Fade-in) usando IntersectionObserver
+    const sections = document.querySelectorAll('.content-section, .chart-container, .intro-section, .challenge-section');
     
-    /* Sombras e Bordas Suaves */
-    --shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    --hover-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    --border-radius-soft: 12px;
-    --border-radius-circle: 50%;
-}
-
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
-    color: var(--text-color);
-    background-color: var(--secondary-color);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* =======================================
-   2. Layout Geral (Header, Main, Footer)
-   ======================================= */
-/* Header e Navegação */
-header {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 1.25rem 0;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-.logo a {
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-    font-size: 1.75rem;
-    color: var(--light-text-color);
-    text-decoration: none;
-    transition: color 0.4s ease;
-    letter-spacing: 1px;
-}
-
-.logo a:hover {
-    color: var(--accent-color-green);
-}
-
-header nav .nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
-}
-
-header nav .nav-menu li a {
-    color: var(--light-text-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.4s;
-    will-change: color;
-}
-
-header nav .nav-menu li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--accent-color-green);
-    border-radius: 2px;
-    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: width;
-}
-
-header nav .nav-menu li a:hover::after,
-header nav .nav-menu li a.active-link::after {
-    width: 100%;
-}
-
-header nav .nav-menu li a:hover,
-header nav .nav-menu li a.active-link {
-    color: var(--accent-color-green);
-}
-
-/* Menu Hambúrguer (invisível em desktop) */
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.menu-toggle .bar {
-    width: 30px;
-    height: 3px;
-    background-color: var(--light-text-color);
-    transition: all 0.4s ease-in-out;
-    will-change: transform, opacity;
-}
-
-/* Animação do botão de hambúrguer quando ativo */
-.menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
-.menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-.menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-/* Conteúdo Principal */
-main {
-    padding: 3rem 0;
-}
-
-.page-content {
-    background-color: var(--background-light);
-    padding: 2.5rem;
-    margin-top: 3rem;
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow);
-}
-
-h1, h2, h3 {
-    font-family: 'Merriweather', serif;
-    color: var(--primary-color);
-    margin-bottom: 1.25rem;
-}
-
-h1 {
-    font-size: 3rem;
-    text-align: center;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-top: 2.5rem;
-    font-weight: 600;
-}
-
-p {
-    margin-bottom: 1.25rem;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2.5rem;
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    margin-top: 3rem;
-}
-
-/* =======================================
-   3. Estilos de Seções e Componentes
-   ======================================= */
-/* Seções de Conteúdo (páginas internas) */
-.content-section {
-    background-color: var(--background-light);
-    padding: 2.5rem;
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow);
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    will-change: opacity, transform;
-}
-
-.content-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Estilos Específicos da Home */
-.hero-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--light-text-color);
-    margin-bottom: 3rem;
-    border-radius: var(--border-radius-soft);
-    overflow: hidden;
-    position: relative;
-    box-shadow: var(--shadow);
-    /* Estilo padrão para mobile e telas menores */
-    height: auto;
-    background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('../assets/images/hero-suape.jpg') no-repeat center center/cover;
-}
-
-.hero-content {
-    background-color: var(--primary-color);
-    padding: 3rem;
-    border-radius: var(--border-radius-soft);
-    z-index: 10;
-    box-shadow: var(--shadow);
-    max-width: 90%;
-    margin: -120px auto 0; /* Ajusta a margem para telas menores */
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 0.75rem;
-    color: var(--light-text-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-content .subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-top: -0.5rem;
-    margin-bottom: 2rem;
-    color: var(--light-text-color);
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--accent-color-green);
-    color: var(--primary-color);
-    padding: 1.2rem 2.5rem;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: background-color 0.4s, transform 0.4s;
-    text-transform: uppercase;
-    will-change: transform;
-}
-
-.cta-button:hover {
-    background-color: #689f38;
-    transform: translateY(-5px) scale(1.05);
-}
-
-.secondary-cta {
-    background-color: transparent;
-    border: 2px solid var(--accent-color-green);
-    color: var(--accent-color-green);
-    transition: background-color 0.4s, color 0.4s, border-color 0.4s;
-}
-
-.secondary-cta:hover {
-    background-color: var(--accent-color-green);
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* Cards (Destaques, Contato) */
-.highlight-cards, .contact-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-    margin-top: 2.5rem;
-    text-align: center;
-}
-
-.card, .contact-card {
-    background-color: var(--background-light);
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow);
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
-    will-change: transform, box-shadow;
-}
-
-.card:hover, .contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--hover-shadow);
-}
-
-.card img, .contact-card img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 1.5rem;
-    border-radius: var(--border-radius-circle);
-    border: 3px solid var(--accent-color-green);
-    padding: 5px;
-}
-
-.card h3, .contact-card h3 {
-    font-size: 1.75rem;
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
-}
-
-.card p, .contact-card p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-.card-link {
-    font-weight: 600;
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.4s;
-    will-change: color;
-}
-
-.card-link:hover {
-    color: var(--accent-color-green);
-}
-
-/* Estilos de Tabelas */
-.data-table table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5rem;
-    border-radius: var(--border-radius-soft);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.data-table th,
-.data-table td {
-    border: 1px solid #dcdcdc;
-    padding: 15px;
-    text-align: left;
-}
-
-.data-table th {
-    background-color: var(--tertiary-color);
-    color: var(--light-text-color);
-    font-weight: 600;
-}
-
-.data-table tr:nth-child(even) {
-    background-color: #f1f8e9;
-}
-
-.data-table tr:hover {
-    background-color: #e8f5e9;
-}
-
-.data-links a {
-    display: inline-block;
-    margin-right: 1.25rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.4s;
-    will-change: color;
-}
-
-.data-links a:hover {
-    color: var(--accent-color-green);
-}
-
-/* Estilos para Gráficos */
-.chart-container {
-    padding: 2.5rem;
-    background-color: var(--background-light);
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow);
-    margin-bottom: 2.5rem;
-}
-
-.chart-container canvas {
-    max-width: 100%;
-    height: 350px;
-}
-
-.chart-caption {
-    background-color: var(--secondary-color);
-    border-left: 5px solid var(--accent-color-green);
-    padding: 1.5rem;
-    margin-top: 2rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    border-radius: 0 8px 8px 0;
-}
-
-.chart-caption strong {
-    color: var(--primary-color);
-}
-
-/* =======================================
-   4. Listas e Formulários
-   ======================================= */
-/* Estilos de Listas e Itens */
-ul, ol {
-    margin-left: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.publications-list, .references-list, .glossary-list {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-/* Lista de Metodologia */
-.content-section ol {
-    list-style-type: none;
-    counter-reset: my-counter;
-}
-
-.content-section ol li {
-    counter-increment: my-counter;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-left: 3rem;
-}
-
-.content-section ol li::before {
-    content: counter(my-counter);
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-    color: var(--accent-color-green);
-    font-size: 1.5rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: var(--tertiary-color);
-    color: var(--light-text-color);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--border-radius-circle);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Lista de Publicações */
-.publication-item, .other-media-item {
-    display: flex;
-    align-items: center;
-    background-color: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius-soft);
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.4s, box-shadow 0.4s;
-    will-change: transform, box-shadow;
-}
-
-.publication-item:hover, .other-media-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.publication-icon, .media-icon {
-    width: 55px;
-    height: 55px;
-    margin-right: 2rem;
-    flex-shrink: 0;
-}
-
-.publication-details, .media-details {
-    flex-grow: 1;
-}
-
-.publication-details h3 {
-    margin: 0 0 0.75rem 0;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.pub-description {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 0.75rem;
-}
-
-.download-link {
-    font-weight: 600;
-    color: var(--accent-color-green);
-    text-decoration: none;
-    transition: color 0.4s;
-    will-change: color;
-}
-
-.download-link:hover {
-    color: var(--tertiary-color);
-}
-
-/* Lista de Referências */
-.references-list li {
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-}
-
-.references-list p {
-    margin: 0;
-    font-size: 1rem;
-    text-indent: -30px;
-    padding-left: 30px;
-}
-
-/* Glossário */
-.glossary-list dt {
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.glossary-list dd {
-    margin-bottom: 1.5rem;
-    margin-left: 2rem;
-    border-left: 3px solid var(--accent-color-brown);
-    padding-left: 1.5rem;
-}
-
-/* Estilos para a seção "Sobre" */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-    margin-top: 2.5rem;
-}
-
-.profile-photo {
-    width: 110px;
-    height: 110px;
-    border-radius: var(--border-radius-circle);
-    object-fit: cover;
-    margin-bottom: 1.5rem;
-    border: 4px solid var(--primary-color);
-    box-shadow: var(--shadow);
-}
-
-.role {
-    font-weight: 600;
-    color: var(--accent-color-green);
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.contribution {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 1.25rem;
-    line-height: 1.7;
-}
-
-/* Estilos específicos para o card do orientador */
-.mentor-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-    max-width: 700px;
-    margin: 2.5rem auto 0;
-    padding: 2.5rem;
-    background-color: var(--background-light);
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow);
-    transition: transform 0.4s, box-shadow 0.4s;
-    will-change: transform, box-shadow;
-}
-
-.mentor-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--hover-shadow);
-}
-
-.mentor-card .profile-photo {
-    margin-right: 2.5rem;
-    margin-bottom: 0;
-}
-
-/* Formulário de Contato */
-.form-group {
-    margin-bottom: 2rem;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: var(--tertiary-color);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #fcfcfc;
-    transition: border-color 0.4s, box-shadow 0.4s;
-    will-change: border-color, box-shadow;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-color-green);
-    outline: none;
-    box-shadow: 0 0 8px rgba(129, 199, 132, 0.4);
-}
-
-/* Redes Sociais */
-.social-links {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 20px;
-}
-
-.social-links img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.4s, filter 0.4s;
-    will-change: transform, filter;
-}
-
-.social-links img:hover {
-    transform: scale(1.2) rotate(5deg);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-.form-status {
-    margin-top: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-color-green);
-}
-
-/* =======================================
-   5. Responsividade (Com o Menu Hambúrguer)
-   ======================================= */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 3rem;
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // 2. Destacar o link da página atual na navegação
+    const navLinks = document.querySelectorAll('header nav .nav-menu li a');
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href').split('/').pop();
+        if (linkPath === currentPath) {
+            link.classList.add('active-link');
+        }
+    });
+
+    // 3. Efeito de scroll suave para links de âncora
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // 4. Funcionalidade do Botão de Voltar ao Topo
+    // Assume que o botão está no HTML com a classe 'back-to-top'
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 
-    .hero-content .subtitle {
-        font-size: 1.2rem;
+    // 5. Funcionalidade do Menu Hambúrguer
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
     }
 
-    header nav {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+    // 6. Remover eventos de mouse do botão CTA (movido para CSS)
+    // O seu arquivo styles.css já tem a regra .cta-button:hover,
+    // então a lógica JS abaixo não é necessária e pode ser removida.
+    // const ctaButton = document.querySelector('.cta-button');
+    // if (ctaButton) {
+    //     ctaButton.addEventListener('mouseover', ...);
+    //     ctaButton.addEventListener('mouseout', ...);
+    // }
 
-    header nav .nav-menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: var(--primary-color);
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        padding-top: 5rem;
-        overflow-y: auto;
-        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        transform: translateY(-100%);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    header nav .nav-menu.active {
-        display: flex;
-        transform: translateY(0);
-    }
-    
-    header nav .nav-menu li {
-        width: 100%;
-        padding: 1.2rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    }
-    
-    header nav .nav-menu li:last-child {
-        border-bottom: none;
-    }
-
-    header nav .nav-menu li a {
-        font-size: 1.5rem;
-        width: 100%;
-        display: block;
-        padding: 1rem 0;
-    }
-
-    .menu-toggle {
-        display: flex;
-        z-index: 1001;
-    }
-
-    .mentor-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .mentor-card .profile-photo {
-        margin-bottom: 1.5rem;
-        margin-right: 0;
-    }
-    
-    /* Oculta a imagem de fundo para dispositivos menores, se o modelo 3D for o foco */
-    .hero-section {
-        background-image: none;
-    }
-
-    .hero-content {
-        margin-top: 0; /* Remove a margem negativa em mobile para evitar sobreposição */
-    }
-}
-
-/* Estilos para o Modelo 3D */
-#model-container {
-    width: 100%;
-    height: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-}
-
-@media (min-width: 992px) {
-    /* Layout para telas maiores: texto e modelo lado a lado */
-    .hero-section {
-        flex-direction: row;
-        gap: 5rem;
-        padding-top: 5rem;
-        height: 70vh;
-        /* Restaura a imagem de fundo em telas maiores */
-        background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('../assets/images/hero-suape.jpg') no-repeat center center/cover;
-    }
-
-    #model-container {
-        height: 100%;
-        max-width: 50%;
-    }
-
-    .hero-content {
-        background-color: transparent;
-        margin-top: 0;
-        box-shadow: none;
-        text-align: left;
-    }
-}
+});
