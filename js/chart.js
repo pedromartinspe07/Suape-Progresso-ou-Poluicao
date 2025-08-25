@@ -1,12 +1,31 @@
 // js/chart.js - Versão compatível com GitHub Pages
 
+console.log('Chart.js script carregado');
+
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM carregado, verificando Chart.js...');
+    
     // Aguarda o carregamento do Chart.js via CDN
     if (typeof Chart === 'undefined') {
         console.error('Chart.js não foi carregado. Verifique se o CDN está funcionando.');
+        // Tenta carregar novamente após um delay
+        setTimeout(() => {
+            if (typeof Chart === 'undefined') {
+                console.error('Chart.js ainda não disponível após timeout');
+                return;
+            } else {
+                console.log('Chart.js carregado após timeout');
+                initializeCharts();
+            }
+        }, 1000);
         return;
     }
+    
+    console.log('Chart.js disponível, inicializando gráficos...');
+    initializeCharts();
+});
 
+function initializeCharts() {
     // Função para obter cores das variáveis CSS
     function getCssVariable(variable) {
         return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
@@ -17,6 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const accentGreen = getCssVariable('--accent-color-green') || '#81c784';
     const accentBrown = getCssVariable('--accent-color-brown') || '#a1887f';
     const accentRed = '#D45D5D';
+    
+    // Verifica se as cores foram carregadas corretamente
+    console.log('Verificação de cores:');
+    console.log('- primaryColor:', primaryColor);
+    console.log('- accentGreen:', accentGreen);
+    console.log('- accentBrown:', accentBrown);
+    console.log('- accentRed:', accentRed);
+
+    console.log('Cores carregadas:', { primaryColor, accentGreen, accentBrown, accentRed });
 
     // ===========================================
     // Gráfico 1: Crescimento Econômico vs. Poluição do Ar
@@ -111,6 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const airPollutionChartElement = document.getElementById('airPollutionChart');
+    console.log('Elemento do gráfico 1 encontrado:', airPollutionChartElement);
+    
     if (airPollutionChartElement) {
         try {
             new Chart(airPollutionChartElement, pollutionConfig);
@@ -118,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Erro ao criar o gráfico 1:', error);
         }
+    } else {
+        console.error('Elemento airPollutionChart não encontrado');
     }
 
     // ===========================================
@@ -179,6 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const mangroveChartElement = document.getElementById('mangroveChart');
+    console.log('Elemento do gráfico 2 encontrado:', mangroveChartElement);
+    
     if (mangroveChartElement) {
         try {
             new Chart(mangroveChartElement, mangroveConfig);
@@ -186,5 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Erro ao criar o gráfico 2:', error);
         }
+    } else {
+        console.error('Elemento mangroveChart não encontrado');
     }
-});
+}
