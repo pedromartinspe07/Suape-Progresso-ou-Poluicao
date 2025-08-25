@@ -547,6 +547,16 @@ ul, ol {
     color: var(--primary-color);
     margin-top: 1.5rem;
     font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust as needed for spacing between text and icon */
+}
+
+.glossary-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    vertical-align: middle;
+    flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .glossary-list dd {
