@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - Suape: Progresso ou Poluição?</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="assets/images/favicon.ico">
@@ -13,79 +14,97 @@
 <body>
 
     <header>
-        <nav>
-    <div class="logo">
-        <a href="index.html">
-            <img src="assets/images/logo.png" alt="Ícone da Logo">  
-        </a>
-    </div>
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-    <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projeto.html">O Projeto</a></li>
-        <li><a href="referencial.html">Referencial</a></li>
-        <li><a href="resultados.html">Resultados</a></li>
-        <li><a href="publicacoes.html">Publicações</a></li>
-        <li><a href="dados.html">Dados</a></li>
-        <li><a href="glossario.html">Glossário</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
-    </ul>
-</nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.png" alt="Ícone da Logo" height="40">  
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projeto.html">O Projeto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="referencial.html">Referencial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resultados.html">Resultados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="publicacoes.html">Publicações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dados.html">Dados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="glossario.html">Glossário</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="sobre.html">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main class="page-content">
         <div class="container">
             <h1>A Equipe por Trás do Projeto</h1>
             
-            <section class="content-section">
+            <section class="content-section" data-aos="fade-up">
                 <p>Somos um grupo de estudantes do Ensino Médio, unidos pela paixão por ciência e pelo compromisso em investigar temas de relevância social e ambiental. O projeto "Suape: Progresso ou Poluição?" é o resultado de meses de pesquisa, trabalho em equipe e dedicação para apresentar uma análise rigorosa e objetiva.</p>
             </section>
 
-            <section class="content-section team-section">
+            <section class="content-section team-section" data-aos="fade-up" data-aos-delay="100">
                 <h2>Os Pesquisadores</h2>
                 <div class="team-grid">
-                    <div class="team-member-card">
+                    <div class="team-member-card" data-aos="fade-up" data-aos-delay="200">
                         <img src="assets/images/placeholder-profile.svg" alt="Foto de Sandra Luiza" class="profile-photo">
                         <h3>Sandra Luiza</h3>
                         <p class="role">Coordenadora de Pesquisa</p>
                         <p class="contribution">Responsável por planejar e supervisionar todas as etapas da pesquisa, garantindo a coesão e o rigor metodológico do trabalho.</p>
                     </div>
-                    <div class="team-member-card">
+                    <div class="team-member-card" data-aos="fade-up" data-aos-delay="300">
                         <img src="assets/images/placeholder-profile.svg" alt="Foto de Jennifer Barros" class="profile-photo">
                         <h3>Jennifer Barros</h3>
                         <p class="role">Analista de Dados</p>
                         <p class="contribution">Especialista na coleta, organização e análise dos dados brutos. Transformou números complexos em informações visuais e compreensíveis para os gráficos.</p>
                     </div>
-                    <div class="team-member-card">
+                    <div class="team-member-card" data-aos="fade-up" data-aos-delay="400">
                         <img src="assets/images/placeholder-profile.svg" alt="Foto de Jaqueline Adriely" class="profile-photo">
                         <h3>Jaqueline Adriely</h3>
                         <p class="role">Redatora Científica</p>
                         <p class="contribution">Responsável por redigir os textos do projeto, garantindo clareza, coesão e a precisão das informações em todas as publicações.</p>
                     </div>
-                    <div class="team-member-card">
+                    <div class="team-member-card" data-aos="fade-up" data-aos-delay="500">
                         <img src="assets/images/placeholder-profile.svg" alt="Foto de Giovanna Emanuelly" class="profile-photo">
                         <h3>Giovanna Emanuelly</h3>
                         <p class="role">Designer e Desenvolvedora</p>
                         <p class="contribution">Criadora da interface e da experiência de usuário do site. Deu vida ao projeto, transformando a pesquisa em uma plataforma digital acessível e intuitiva.</p>
                     </div>
-                    <div class="team-member-card">
+                    <div class="team-member-card" data-aos="fade-up" data-aos-delay="600">
                         <img src="assets/images/placeholder-profile.svg" alt="Foto de Julya Vitória" class="profile-photo">
                         <h3>Julya Vitória</h3>
                         <p class="role">Coordenadora de Campo</p>
                         <p class="contribution">Gerenciou a coleta de informações e referências primárias, sendo a ponte entre a teoria e a realidade local de Suape.</p>
                     </div>
-                    <div class="team-member-card">
+                    <div class="team-member-card" data-aos="fade-up" data-aos-delay="700">
                         <img src="assets/images/placeholder-profile.svg" alt="Foto de Júlia Manuela" class="profile-photo">
                         <h3>Júlia Manuela</h3>
                         <p class="role">Editora</p>
                         <p class="contribution">Trabalhou na revisão e edição final de todos os textos, assegurando a qualidade e a padronização do conteúdo escrito.</p>
                     </div>
-                    <div class="team-member-card">
+                    <div class="team-member-card" data-aos="fade-up" data-aos-delay="800">
                         <img src="assets/images/placeholder-profile.svg" alt="Foto de Bruna Daniela" class="profile-photo">
                         <h3>Bruna Daniela</h3>
                         <p class="role">Apresentadora</p>
@@ -94,9 +113,9 @@
                 </div>
             </section>
 
-            <section class="content-section mentor-section">
+            <section class="content-section mentor-section" data-aos="fade-up" data-aos-delay="900">
                 <h2>Orientador</h2>
-                <div class="mentor-card">
+                <div class="mentor-card" data-aos="fade-up" data-aos-delay="1000">
                     <img src="assets/images/placeholder-profile.svg" alt="Foto do Professor André" class="profile-photo">
                     <div class="mentor-details">
                         <h3>Professor André</h3>
@@ -114,5 +133,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

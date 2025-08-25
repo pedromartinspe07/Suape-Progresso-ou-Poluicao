@@ -8,6 +8,8 @@
     <meta name="description" content="Análise crítica e aprofundada sobre os impactos ambientais do Complexo Industrial Portuário de Suape.">
     
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,58 +27,74 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/logo.png">  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.png" alt="Ícone da Logo" height="40">
                 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projeto.html">O Projeto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="referencial.html">Referencial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resultados.html">Resultados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="publicacoes.html">Publicações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dados.html">Dados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="glossario.html">Glossário</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre.html">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active-link">Home</a></li>
-                <li><a href="projeto.html">O Projeto</a></li>
-                <li><a href="referencial.html">Referencial</a></li>
-                <li><a href="resultados.html">Resultados</a></li>
-                <li><a href="publicacoes.html">Publicações</a></li>
-                <li><a href="dados.html">Dados</a></li>
-                <li><a href="glossario.html">Glossário</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
         </nav>
     </header>
 
     <main class="home-page">
         <section class="hero-section">
             <div id="model-container"></div>
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-up">
                 <h1>Suape: Progresso ou Poluição?</h1>
                 <p class="subtitle">Uma análise crítica sobre o desenvolvimento do Complexo Industrial Portuário de Suape e seus impactos ambientais.</p>
                 <a href="projeto.html" class="cta-button">Conheça o Projeto</a>
             </div>
         </section>
 
-        <section class="intro-section content-section">
+        <section class="intro-section content-section" data-aos="fade-up">
             <div class="container">
                 <h2>Introdução</h2>
                 <p>O Complexo Industrial Portuário de Suape é um motor de desenvolvimento econômico em Pernambuco e no Nordeste do Brasil. No entanto, o rápido crescimento levanta questões cruciais sobre o custo ambiental desse progresso. Nosso projeto de pesquisa visa analisar, de forma objetiva, os dados e as consequências da expansão de Suape, buscando entender o delicado equilíbrio entre o desenvolvimento econômico e a sustentabilidade ambiental.</p>
             </div>
         </section>
 
-        <section class="challenge-section content-section">
+        <section class="challenge-section content-section" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
                 <h2>O Desafio</h2>
                 <p>O polo industrial atrai investimentos e gera empregos, mas também exige uma reflexão sobre a poluição do ar, da água, a degradação dos manguezais e o deslocamento de comunidades tradicionais. Este trabalho se propõe a ir além das manchetes e apresentar um estudo embasado em dados e referências científicas.</p>
             </div>
         </section>
         
-        <section class="highlights-section content-section">
+        <section class="highlights-section content-section" data-aos="fade-up" data-aos-delay="400">
             <div class="container">
                 <h2>Destaques da Pesquisa</h2>
                 <div class="highlight-cards">
@@ -102,7 +120,7 @@
             </div>
         </section>
 
-        <section class="call-to-action-section content-section">
+        <section class="call-to-action-section content-section" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
                 <h2>Pronto para Aprofundar o Conhecimento?</h2>
                 <p>Navegue pelas seções do site e descubra todos os detalhes do nosso projeto, desde a metodologia até as conclusões finais.</p>
@@ -119,5 +137,7 @@
     <script src="js/main.js" defer></script>
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="module" src="js/model.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>

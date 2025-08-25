@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dados - Suape: Progresso ou Poluição?</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="assets/images/favicon.ico">
@@ -13,41 +15,59 @@
 <body>
 
     <header>
-        <nav>
-    <div class="logo">
-        <a href="index.html">
-            <img src="assets/images/logo.png" alt="Ícone da Logo">  
-        </a>
-    </div>
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-    <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projeto.html">O Projeto</a></li>
-        <li><a href="referencial.html">Referencial</a></li>
-        <li><a href="resultados.html">Resultados</a></li>
-        <li><a href="publicacoes.html">Publicações</a></li>
-        <li><a href="dados.html">Dados</a></li>
-        <li><a href="glossario.html">Glossário</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
-    </ul>
-</nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.png" alt="Ícone da Logo" height="40">  
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projeto.html">O Projeto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="referencial.html">Referencial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resultados.html">Resultados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="publicacoes.html">Publicações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="dados.html">Dados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="glossario.html">Glossário</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre.html">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main class="page-content">
         <div class="container">
             <h1>Dados em Formato Bruto</h1>
-            <section class="content-section">
+            <section class="content-section" data-aos="fade-up">
                 <h2>Acesso Transparente</h2>
                 <p>A transparência e a reprodutibilidade são pilares da ciência. Por isso, disponibilizamos aqui os conjuntos de dados brutos que foram utilizados para gerar os gráficos e as análises apresentadas em nosso projeto. Você pode visualizá-los diretamente nas tabelas ou fazer o download para análise própria.</p>
             </section>
             
-            <section class="content-section">
-                <div class="data-table">
+            <section class="content-section" data-aos="fade-up" data-aos-delay="100">
+                <div class="data-table" data-aos="fade-up" data-aos-delay="200">
                     <h3>Tabela 1: Qualidade da Água na Baía de Suape</h3>
                     <p><strong>Fonte:</strong> Análises de relatórios anuais da CPRH (Agência Estadual de Meio Ambiente de Pernambuco).</p>
                     <table>
@@ -82,7 +102,7 @@
                     </table>
                 </div>
 
-                <div class="data-table">
+                <div class="data-table" data-aos="fade-up" data-aos-delay="300">
                     <h3>Tabela 2: Emissões de Gás Carbônico (CO₂)</h3>
                     <p><strong>Fonte:</strong> Estimativas baseadas em relatórios do SINDPE (Sindicato das Indústrias de Pernambuco) e estudos acadêmicos sobre a pegada de carbono do setor industrial.</p>
                     <table>
@@ -109,7 +129,7 @@
                     </table>
                 </div>
 
-                <div class="data-table">
+                <div class="data-table" data-aos="fade-up" data-aos-delay="400">
                     <h3>Tabela 3: Crescimento Econômico (PIB Regional)</h3>
                     <p><strong>Fonte:</strong> Dados agregados do IBGE e estudos sobre a economia regional de Pernambuco.</p>
                     <table>
@@ -137,7 +157,7 @@
                 </div>
             </section>
             
-            <section class="content-section">
+            <section class="content-section" data-aos="fade-up" data-aos-delay="500">
                 <h2>Metadados e Metodologia de Coleta</h2>
                 <p>Os dados apresentados são dados secundários compilados de fontes públicas e confiáveis. A coleta foi realizada em um período de <strong>[Indicar o período, ex: 6 meses]</strong>, e os valores foram arredondados para facilitar a leitura. Os valores exatos e a metodologia de coleta podem ser encontrados no arquivo de metadados incluído no pacote de download.</p>
                 <div class="data-links">
@@ -155,5 +175,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>

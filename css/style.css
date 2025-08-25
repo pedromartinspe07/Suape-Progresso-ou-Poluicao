@@ -60,6 +60,8 @@ header {
     z-index: 1000;
 }
 
+/* Removido: Estilos de navegação customizados, agora gerenciados pelo Bootstrap */
+/*
 header nav {
     display: flex;
     justify-content: space-between;
@@ -123,8 +125,10 @@ header nav .nav-menu li a:hover,
 header nav .nav-menu li a.active-link {
     color: var(--accent-color-green);
 }
+*/
 
 /* Menu Hambúrguer (invisível em desktop) */
+/*
 .menu-toggle {
     display: none;
     cursor: pointer;
@@ -141,6 +145,7 @@ header nav .nav-menu li a.active-link {
 }
 
 /* Animação do botão de hambúrguer quando ativo */
+/*
 .menu-toggle.active .bar:nth-child(2) {
     opacity: 0;
 }
@@ -150,6 +155,7 @@ header nav .nav-menu li a.active-link {
 .menu-toggle.active .bar:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
 }
+*/
 
 /* Conteúdo Principal */
 main {

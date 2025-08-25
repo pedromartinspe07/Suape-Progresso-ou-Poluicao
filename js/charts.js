@@ -2,6 +2,10 @@
 
 // Importa a biblioteca Chart.js
 import Chart from 'chart.js/auto';
+import ChartDataLabels from 'chartjs-plugin-datalabels'; // Importa o plugin de rótulos de dados
+
+// Registra o plugin para que Chart.js possa usá-lo
+Chart.register(ChartDataLabels);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -36,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             label: 'PIB (bilhões de R$)',
             data: [50, 55, 60, 68, 75, 82],
             borderColor: primaryColor,
-            backgroundColor: 'rgba(0, 51, 102, 0.2)',
+            backgroundColor: primaryColor, // ✨ MELHORIA: Usa a cor principal para o PIB
             yAxisID: 'y1',
             tension: 0.4,
             pointStyle: 'rectRot',
@@ -77,6 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             return label;
                         }
                     }
+                },
+                // ✨ MELHORIA: Adiciona plugin para exibir rótulos de dados para o Gráfico 1 também
+                datalabels: {
+                    display: false, // Desativa por padrão para o gráfico de linhas
                 }
             },
             scales: {

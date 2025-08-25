@@ -18,7 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // 2. Destacar o link da página atual na navegação
+    // Inicializar AOS
+    AOS.init({
+        duration: 1000, // duração das animações em ms
+        once: true,    // se as animações devem ocorrer apenas uma vez
+    });
+
+    // 2. Destacar o link da página atual na navegação (Removido - Bootstrap agora lida com isso)
+    /*
     const navLinks = document.querySelectorAll('header nav .nav-menu li a');
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -28,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active-link');
         }
     });
+    */
 
     // 3. Efeito de scroll suave para links de âncora
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -58,7 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Funcionalidade do Menu Hambúrguer
+    // 5. Funcionalidade do Menu Hambúrguer (Removido - Bootstrap agora lida com isso)
+    /*
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -75,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    */
 
     // 6. Remover eventos de mouse do botão CTA (movido para CSS)
     // O seu arquivo styles.css já tem a regra .cta-button:hover,
