@@ -10,6 +10,7 @@
     <link rel="icon" href="assets/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script> <!-- Adicionado para compatibilidade com importmap -->
     <script type="importmap">
         {
             "imports": {
@@ -24,7 +25,7 @@
         <nav>
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/logo.png">  
+                    <img src="assets/images/logo.png" alt="Ícone da Logo">  
                 </a>
             </div>
             <div class="menu-toggle" id="mobile-menu">
@@ -57,14 +58,14 @@
 
             <section class="content-section chart-container">
                 <h2>Gráfico 1: Crescimento Econômico vs. Poluição do Ar</h2>
-                <p>Este gráfico de linha compara o **Produto Interno Bruto (PIB)** da região de Suape com os **níveis de poluentes atmosféricos** (como óxidos de enxofre e nitrogênio) ao longo da última década. A curva do PIB, que reflete o crescimento industrial, é confrontada com a linha dos poluentes, permitindo visualizar a relação entre desenvolvimento e impacto na qualidade do ar. Observa-se que, à medida que a atividade econômica cresceu, a concentração de poluentes seguiu uma tendência de alta.</p>
+                <p>Este gráfico de linha compara o Produto Interno Bruto (PIB) da região de Suape com os níveis de poluentes atmosféricos (como óxidos de enxofre e nitrogênio) ao longo da última década. A curva do PIB, que reflete o crescimento industrial, é confrontada com a linha dos poluentes, permitindo visualizar a relação entre desenvolvimento e impacto na qualidade do ar. Observa-se que, à medida que a atividade econômica cresceu, a concentração de poluentes seguiu uma tendência de alta.</p>
                 <canvas id="airPollutionChart"></canvas>
                 <p class="chart-caption"><strong>Análise:</strong> Os dados indicam uma forte correlação positiva entre o crescimento econômico e a poluição do ar. Esse achado sugere que, apesar dos avanços tecnológicos, as atividades industriais do Complexo de Suape continuam a exercer uma pressão significativa sobre a atmosfera local.</p>
             </section>
 
             <section class="content-section chart-container">
                 <h2>Gráfico 2: Degradação de Manguezais</h2>
-                <p>Este gráfico de barras mostra a **variação da área de manguezal** na região de Suape em dois momentos: antes e depois da expansão do Complexo. Os dados foram obtidos a partir de análises de imagens de satélite. A barra "Área Original" representa a extensão do ecossistema antes do grande boom industrial, enquanto a barra "Área Atual" reflete a redução observada.</p>
+                <p>Este gráfico de barras mostra a variação da área de manguezal na região de Suape em dois momentos: antes e depois da expansão do Complexo. Os dados foram obtidos a partir de análises de imagens de satélite. A barra "Área Original" representa a extensão do ecossistema antes do grande boom industrial, enquanto a barra "Área Atual" reflete a redução observada.</p>
                 <canvas id="mangroveChart"></canvas>
                 <p class="chart-caption"><strong>Análise:</strong> A diminuição da área de manguezal é um dos resultados mais alarmantes de nossa pesquisa. Como um dos ecossistemas mais importantes para a biodiversidade e como barreira natural contra inundações, a perda de manguezais tem consequências graves e de longo prazo para a saúde ambiental da região.</p>
             </section>
