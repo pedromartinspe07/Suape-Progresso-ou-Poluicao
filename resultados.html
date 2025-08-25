@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "chart.js": "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.js"
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -16,11 +24,16 @@
             <div class="logo">
                 <a href="index.html">Suape: Progresso ou Poluição?</a>
             </div>
-            <ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projeto.html">O Projeto</a></li>
                 <li><a href="referencial.html">Referencial</a></li>
-                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="resultados.html" class="active-link">Resultados</a></li>
                 <li><a href="publicacoes.html">Publicações</a></li>
                 <li><a href="dados.html">Dados</a></li>
                 <li><a href="glossario.html">Glossário</a></li>
@@ -65,8 +78,8 @@
         <p>Orientação: Prof. André</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/charts.js"></script>
+    <script src="js/main.js" defer></script>
+    <script type="module" src="js/charts.js" defer></script>
+
 </body>
 </html>
