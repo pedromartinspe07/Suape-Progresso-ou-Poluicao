@@ -24,33 +24,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="projeto.html">O Projeto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="referencial.html">Referencial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="resultados.html">Resultados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="publicacoes.html">Publicações</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dados.html">Dados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="glossario.html">Glossário</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sobre.html">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projeto.html">O Projeto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="referencial.html">Referencial</a></li>
+                        <li class="nav-item"><a class="nav-link" href="resultados.html">Resultados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="publicacoes.html">Publicações</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dados.html">Dados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="glossario.html">Glossário</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="contato.html">Contato</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,6 +45,8 @@
             <section class="content-section contact-section" data-aos="fade-up">
                 <h2>Envie uma Mensagem</h2>
                 <p>Valorizamos o seu feedback. Use o formulário abaixo para entrar em contato com nossa equipe de pesquisa. Seus comentários, dúvidas ou sugestões são importantes para nós.</p>
+                
+                <!-- Formulário integrado ao EmailJS -->
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Nome:</label>
@@ -124,6 +108,13 @@
         <p>Orientação: Prof. André</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        // Inicializa o EmailJS com sua Public Key
+        (function(){
+            emailjs.init("mAMKoaipye_GIL1ro"); // <-- troque pela sua Public Key    
+        })();
+    </script>
     <script src="js/main.js"></script>
     <script src="js/contact.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
