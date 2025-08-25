@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.background = new THREE.Color(0xf0f0f0); // Cor de fundo do contêiner
 
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 1.5, 3);
+    camera.position.set(0, 1.5, 10); // ✨ AQUI: Valor de Z ajustado para afastar a câmera
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
