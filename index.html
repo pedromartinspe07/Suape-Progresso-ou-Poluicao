@@ -8,35 +8,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+            }
+        }
+    </script>
 </head>
 <body>
 
     <header>
-<nav>
-    <div class="logo">
-        <a href="index.html">Suape: Progresso ou Poluição?</a>
-    </div>
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-    <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projeto.html">O Projeto</a></li>
-        <li><a href="referencial.html">Referencial</a></li>
-        <li><a href="resultados.html">Resultados</a></li>
-        <li><a href="publicacoes.html">Publicações</a></li>
-        <li><a href="dados.html">Dados</a></li>
-        <li><a href="glossario.html">Glossário</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
-    </ul>
-</nav>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Suape: Progresso ou Poluição?</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projeto.html">O Projeto</a></li>
+                <li><a href="referencial.html">Referencial</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="publicacoes.html">Publicações</a></li>
+                <li><a href="dados.html">Dados</a></li>
+                <li><a href="glossario.html">Glossário</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="home-page">
         <section class="hero-section">
+            <div id="model-container"></div>
             <div class="hero-content">
                 <h1>Suape: Progresso ou Poluição?</h1>
                 <p class="subtitle">Uma análise crítica sobre o desenvolvimento do Complexo Industrial Portuário de Suape e seus impactos ambientais.</p>
@@ -99,5 +110,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script type="module" src="js/model.js"></script>
 </body>
 </html>
