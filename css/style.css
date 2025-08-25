@@ -97,6 +97,7 @@ header nav .nav-menu li a {
     padding: 5px 0;
     position: relative;
     transition: color 0.4s;
+    will-change: color;
 }
 
 header nav .nav-menu li a::after {
@@ -110,6 +111,7 @@ header nav .nav-menu li a::after {
     background-color: var(--accent-color-green);
     border-radius: 2px;
     transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: width;
 }
 
 header nav .nav-menu li a:hover::after,
@@ -135,6 +137,7 @@ header nav .nav-menu li a.active-link {
     height: 3px;
     background-color: var(--light-text-color);
     transition: all 0.4s ease-in-out;
+    will-change: transform, opacity;
 }
 
 /* Animação do botão de hambúrguer quando ativo */
@@ -205,6 +208,7 @@ footer {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
+    will-change: opacity, transform;
 }
 
 .content-section.visible {
@@ -214,9 +218,8 @@ footer {
 
 /* Estilos Específicos da Home */
 .hero-section {
-    background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('../assets/images/hero-suape.jpg') no-repeat center center/cover;
-    height: 70vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -226,6 +229,19 @@ footer {
     overflow: hidden;
     position: relative;
     box-shadow: var(--shadow);
+    /* Estilo padrão para mobile e telas menores */
+    height: auto;
+    background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('../assets/images/hero-suape.jpg') no-repeat center center/cover;
+}
+
+.hero-content {
+    background-color: var(--primary-color);
+    padding: 3rem;
+    border-radius: var(--border-radius-soft);
+    z-index: 10;
+    box-shadow: var(--shadow);
+    max-width: 90%;
+    margin: -120px auto 0; /* Ajusta a margem para telas menores */
 }
 
 .hero-content h1 {
@@ -254,6 +270,7 @@ footer {
     letter-spacing: 0.5px;
     transition: background-color 0.4s, transform 0.4s;
     text-transform: uppercase;
+    will-change: transform;
 }
 
 .cta-button:hover {
@@ -292,6 +309,7 @@ footer {
     flex-direction: column;
     align-items: center;
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+    will-change: transform, box-shadow;
 }
 
 .card:hover, .contact-card:hover {
@@ -324,6 +342,7 @@ footer {
     color: var(--primary-color);
     text-decoration: none;
     transition: color 0.4s;
+    will-change: color;
 }
 
 .card-link:hover {
@@ -368,6 +387,7 @@ footer {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.4s;
+    will-change: color;
 }
 
 .data-links a:hover {
@@ -460,6 +480,7 @@ ul, ol {
     margin-bottom: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.4s, box-shadow 0.4s;
+    will-change: transform, box-shadow;
 }
 
 .publication-item:hover, .other-media-item:hover {
@@ -495,6 +516,7 @@ ul, ol {
     color: var(--accent-color-green);
     text-decoration: none;
     transition: color 0.4s;
+    will-change: color;
 }
 
 .download-link:hover {
@@ -576,6 +598,7 @@ ul, ol {
     border-radius: var(--border-radius-soft);
     box-shadow: var(--shadow);
     transition: transform 0.4s, box-shadow 0.4s;
+    will-change: transform, box-shadow;
 }
 
 .mentor-card:hover {
@@ -609,6 +632,7 @@ ul, ol {
     font-size: 1rem;
     background-color: #fcfcfc;
     transition: border-color 0.4s, box-shadow 0.4s;
+    will-change: border-color, box-shadow;
 }
 
 .form-group input:focus,
@@ -629,6 +653,7 @@ ul, ol {
     width: 40px;
     height: 40px;
     transition: transform 0.4s, filter 0.4s;
+    will-change: transform, filter;
 }
 
 .social-links img:hover {
@@ -705,6 +730,15 @@ ul, ol {
         margin-bottom: 1.5rem;
         margin-right: 0;
     }
+    
+    /* Oculta a imagem de fundo para dispositivos menores, se o modelo 3D for o foco */
+    .hero-section {
+        background-image: none;
+    }
+
+    .hero-content {
+        margin-top: 0; /* Remove a margem negativa em mobile para evitar sobreposição */
+    }
 }
 
 /* Estilos para o Modelo 3D */
@@ -717,34 +751,6 @@ ul, ol {
     background: transparent;
 }
 
-/* Ajuste do layout da seção hero */
-.hero-section {
-    background: transparent !important;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--light-text-color);
-    margin-bottom: 3rem;
-}
-
-.hero-content {
-    background-color: var(--primary-color);
-    padding: 3rem;
-    border-radius: var(--border-radius-soft);
-    margin-top: -120px;
-    z-index: 10;
-    box-shadow: var(--shadow);
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-content h1, .hero-content .subtitle {
-    color: var(--light-text-color);
-}
 
 @media (min-width: 992px) {
     /* Layout para telas maiores: texto e modelo lado a lado */
@@ -752,8 +758,9 @@ ul, ol {
         flex-direction: row;
         gap: 5rem;
         padding-top: 5rem;
-        background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('../assets/images/hero-suape.jpg') no-repeat center center/cover;
         height: 70vh;
+        /* Restaura a imagem de fundo em telas maiores */
+        background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('../assets/images/hero-suape.jpg') no-repeat center center/cover;
     }
 
     #model-container {
