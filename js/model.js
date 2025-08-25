@@ -19,19 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
-    renderer.outputEncoding = THREE.sRGBEncoding; // ✨ CORREÇÃO: Habilita a codificação de cores sRGB para texturas
-    renderer.toneMapping = THREE.ACESFilmicToneMapping; // ✨ MELHORIA: Tom de mapeamento para cores mais realistas
-    renderer.toneMappingExposure = 1.25; // ✨ MELHORIA: Ajusta a exposição da luz
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.25;
     container.appendChild(renderer.domElement);
 
     // 2. Adicionar Luzes para iluminar o modelo
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0); // ✨ MELHORIA: Aumenta a intensidade da luz
-    directionalLight.position.set(5, 10, 7.5); // ✨ MELHORIA: Ajusta a posição da luz para melhor sombreamento
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    directionalLight.position.set(5, 10, 7.5);
     directionalLight.castShadow = true;
-    // ✨ MELHORIA: Configura a sombra para ser mais precisa
     directionalLight.shadow.mapSize.width = 1024;
     directionalLight.shadow.mapSize.height = 1024;
     scene.add(directionalLight);
@@ -43,6 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
         function (gltf) {
             const model = gltf.scene;
             model.scale.set(1.5, 1.5, 1.5);
+            
+            // ✨ CORREÇÃO: Itera sobre os objetos do modelo para corrigir a codificação das texturas
+            model.traverse((child) => {
+                if (child.isMesh) {
+                    child.material.map && (child.material.map.encoding = THREE.sRGBEncoding);
+                    child.material.needsUpdate = true;
+                }
+            });
+
             scene.add(model);
         },
         undefined,
