@@ -667,7 +667,6 @@ ul, ol {
     color: var(--accent-color-green);
 }
 
-
 /* =======================================
    5. Responsividade (Com o Menu Hambúrguer)
    ======================================= */
@@ -691,15 +690,17 @@ ul, ol {
         width: 100%;
         text-align: center;
         background-color: var(--primary-color);
-        padding-top: 1rem;
-        position: absolute;
-        top: 75px;
+        position: fixed;
+        top: 0;
         left: 0;
+        height: 100vh;
+        padding-top: 5rem;
+        overflow-y: auto;
         transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        transform: translateY(-150%);
+        transform: translateY(-100%);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-
+    
     header nav .nav-menu.active {
         display: flex;
         transform: translateY(0);
@@ -708,12 +709,18 @@ ul, ol {
     header nav .nav-menu li {
         width: 100%;
         padding: 1.2rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    }
+    
+    header nav .nav-menu li:last-child {
+        border-bottom: none;
     }
 
     header nav .nav-menu li a {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         width: 100%;
         display: block;
+        padding: 1rem 0;
     }
 
     .menu-toggle {
@@ -750,7 +757,6 @@ ul, ol {
     align-items: center;
     background: transparent;
 }
-
 
 @media (min-width: 992px) {
     /* Layout para telas maiores: texto e modelo lado a lado */
