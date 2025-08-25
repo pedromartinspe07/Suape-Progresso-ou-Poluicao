@@ -359,7 +359,7 @@ footer {
 
 .chart-container canvas {
     max-width: 100%;
-    height: auto;
+    height: 300px; /* ou outro valor fixo, como 300px */
 }
 
 .chart-caption {
