@@ -82,23 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-});
-
-    // Funcionalidade do Menu Hambúrguer
-    const menuToggle = document.getElementById('mobile-menu');
+    // 6. Funcionalidade do Menu Hambúrguer (corrigido e re-organizado)
+    const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
-
-    // Fechar o menu ao clicar em um link
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
+    // Verifica se os elementos existem antes de adicionar event listeners
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         });
-    });
-});
 
+        // Fechar o menu ao clicar em um link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+
+}); // Fim do DOMContentLoaded
