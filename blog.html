@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Suape: Progresso ou Poluição?</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.png" alt="Ícone da Logo" height="40">  
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projeto.html">O Projeto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="referencial.html">Referencial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resultados.html">Resultados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="publicacoes.html">Publicações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dados.html">Dados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="glossario.html">Glossário</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre.html">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
+                        <li class="nav-item dark-mode-toggle-container">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="darkModeToggle">
+                                <label class="form-check-label" for="darkModeToggle">
+                                    <i class="fas fa-sun"></i>
+                                    <i class="fas fa-moon"></i>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <h1>Blog Científico</h1>
+            <section class="content-section" data-aos="fade-up">
+                <p>Fique por dentro das últimas notícias, descobertas científicas e atualizações sobre o Complexo Industrial Portuário de Suape. Aqui compartilhamos análises, estudos recentes e reflexões sobre desenvolvimento sustentável.</p>
+            </section>
+
+            <section class="content-section" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-filters">
+                    <h3>Filtrar por categoria:</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Todas</button>
+                        <button class="filter-btn" data-filter="noticias">Notícias</button>
+                        <button class="filter-btn" data-filter="pesquisa">Pesquisa</button>
+                        <button class="filter-btn" data-filter="analise">Análise</button>
+                        <button class="filter-btn" data-filter="atualizacao">Atualizações</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" data-aos="fade-up" data-aos-delay="200">
+                <h2>Posts em Destaque</h2>
+                
+                <div class="blog-post featured" data-category="noticias" data-aos="fade-up" data-aos-delay="300">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-date">15 de Janeiro, 2025</span>
+                            <span class="post-category">Notícias</span>
+                            <span class="post-read-time"><i class="fas fa-clock"></i> 5 min de leitura</span>
+                        </div>
+                        <h3>Novo Relatório da CPRH Revela Aumento na Poluição da Baía de Suape</h3>
+                    </div>
+                    <div class="post-content">
+                        <img src="assets/images/noticia-suape.jpg" alt="Poluição da água" class="post-image">
+                        <p class="post-excerpt">O mais recente relatório da Agência Estadual de Meio Ambiente de Pernambuco (CPRH) mostra um aumento preocupante nos níveis de poluentes na Baía de Suape. Os dados indicam que as concentrações de fosfatos e nitratos ultrapassaram os limites estabelecidos pela legislação ambiental...</p>
+                        <div class="post-tags">
+                            <span class="tag">CPRH</span>
+                            <span class="tag">Poluição da Água</span>
+                            <span class="tag">Monitoramento</span>
+                        </div>
+                        <a href="javascript:void(0)" class="read-more-btn">Ler mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="blog-post" data-category="pesquisa" data-aos="fade-up" data-aos-delay="400">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-date">10 de Janeiro, 2025</span>
+                            <span class="post-category">Pesquisa</span>
+                            <span class="post-read-time"><i class="fas fa-clock"></i> 8 min de leitura</span>
+                        </div>
+                        <h3>Estudo Revela Impactos na Biodiversidade Marinha de Suape</h3>
+                    </div>
+                    <div class="post-content">
+                        <img src="assets/images/noticia2-suape.png" alt="Ecossistema marinho" class="post-image">
+                        <p class="post-excerpt">Pesquisadores da Universidade Federal de Pernambuco publicaram um estudo inédito sobre os impactos do desenvolvimento industrial na biodiversidade marinha da região de Suape. O estudo, que durou três anos, documentou mudanças significativas na composição das espécies...</p>
+                        <div class="post-tags">
+                            <span class="tag">Biodiversidade</span>
+                            <span class="tag">UFPE</span>
+                            <span class="tag">Ecossistema Marinho</span>
+                        </div>
+                        <a href="javascript:void(0)" class="read-more-btn">Ler mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" data-aos="fade-up" data-aos-delay="500">
+                <h2>Posts Recentes</h2>
+                
+                <div class="blog-grid">
+                    <div class="blog-post" data-category="analise" data-aos="fade-up" data-aos-delay="600">
+                        <div class="post-header">
+                            <div class="post-meta">
+                                <span class="post-date">8 de Janeiro, 2025</span>
+                                <span class="post-category">Análise</span>
+                                <span class="post-read-time"><i class="fas fa-clock"></i> 6 min de leitura</span>
+                            </div>
+                            <h3>Análise: O Dilema entre Desenvolvimento Econômico e Sustentabilidade</h3>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-excerpt">Uma análise crítica sobre como o Complexo Industrial Portuário de Suape representa um caso paradigmático do conflito entre crescimento econômico e preservação ambiental. O artigo discute as implicações para o futuro do desenvolvimento sustentável no Brasil...</p>
+                            <div class="post-tags">
+                                <span class="tag">Desenvolvimento Sustentável</span>
+                                <span class="tag">Análise Crítica</span>
+                            </div>
+                            <a href="javascript:void(0)" class="read-more-btn">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-post" data-category="atualizacao" data-aos="fade-up" data-aos-delay="700">
+                        <div class="post-header">
+                            <div class="post-meta">
+                                <span class="post-date">5 de Janeiro, 2025</span>
+                                <span class="post-category">Atualizações</span>
+                                <span class="post-read-time"><i class="fas fa-clock"></i> 3 min de leitura</span>
+                            </div>
+                            <h3>Atualização: Novos Dados Disponíveis no Portal</h3>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-excerpt">Acabamos de atualizar nossa base de dados com informações mais recentes sobre a qualidade do ar e da água em Suape. Os novos dados incluem medições de 2024 e permitem uma análise mais precisa das tendências ambientais...</p>
+                            <div class="post-tags">
+                                <span class="tag">Base de Dados</span>
+                                <span class="tag">2024</span>
+                                <span class="tag">Atualização</span>
+                            </div>
+                            <a href="javascript:void(0)" class="read-more-btn">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-post" data-category="noticias" data-aos="fade-up" data-aos-delay="800">
+                        <div class="post-header">
+                            <div class="post-meta">
+                                <span class="post-date">3 de Janeiro, 2025</span>
+                                <span class="post-category">Notícias</span>
+                                <span class="post-read-time"><i class="fas fa-clock"></i> 4 min de leitura</span>
+                            </div>
+                            <h3>Comunidade Local Organiza Protesto contra Poluição Industrial</h3>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-excerpt">Moradores das comunidades próximas ao Complexo Industrial Portuário de Suape organizaram um protesto pacífico contra os impactos da poluição industrial na saúde pública. O movimento reúne pescadores, agricultores e moradores locais...</p>
+                            <div class="post-tags">
+                                <span class="tag">Comunidade Local</span>
+                                <span class="tag">Protesto</span>
+                                <span class="tag">Saúde Pública</span>
+                            </div>
+                            <a href="javascript:void(0)" class="read-more-btn">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-post" data-category="pesquisa" data-aos="fade-up" data-aos-delay="900">
+                        <div class="post-header">
+                            <div class="post-meta">
+                                <span class="post-date">1 de Janeiro, 2025</span>
+                                <span class="post-category">Pesquisa</span>
+                                <span class="post-read-time"><i class="fas fa-clock"></i> 7 min de leitura</span>
+                            </div>
+                            <h3>Novas Tecnologias para Monitoramento Ambiental em Suape</h3>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-excerpt">Pesquisadores do Instituto de Tecnologia de Pernambuco desenvolveram um sistema inovador de monitoramento ambiental usando sensores IoT e inteligência artificial. A tecnologia promete revolucionar o acompanhamento da qualidade ambiental...</p>
+                            <div class="post-tags">
+                                <span class="tag">Tecnologia</span>
+                                <span class="tag">IoT</span>
+                                <span class="tag">Monitoramento</span>
+                            </div>
+                            <a href="javascript:void(0)" class="read-more-btn">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section newsletter-section" data-aos="fade-up" data-aos-delay="1000">
+                <div class="newsletter-container">
+                    <h3>Fique por dentro das novidades!</h3>
+                    <p>Inscreva-se em nossa newsletter para receber as últimas notícias e atualizações sobre Suape e meio ambiente.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Seu e-mail" required>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-paper-plane"></i> Inscrever
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; SSP 2025 | Todos os direitos reservados.</p>
+        <p>Orientação: Prof. André</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

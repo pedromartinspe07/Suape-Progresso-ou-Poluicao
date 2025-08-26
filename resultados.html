@@ -44,6 +44,9 @@
                             <a class="nav-link" href="publicacoes.html">Publicações</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="dados.html">Dados</a>
                         </li>
                         <li class="nav-item">
@@ -81,20 +84,38 @@
 
             <section class="content-section chart-container" data-aos="fade-up" data-aos-delay="100">
                 <h2>Gráfico 1: Crescimento Econômico vs. Poluição do Ar</h2>
+                <div class="chart-controls mb-3">
+                    <label for="grafico1-variavel" class="form-label">Visualizar:</label>
+                    <select id="grafico1-variavel" class="form-select" style="width:auto;display:inline-block;">
+                        <option value="ambos">PIB e Poluição do Ar</option>
+                        <option value="pib">Apenas PIB</option>
+                        <option value="poluicao">Apenas Poluição do Ar</option>
+                    </select>
+                    <button id="download-grafico1" class="btn btn-success ms-2">Baixar Dados CSV</button>
+                </div>
                 <p>Este gráfico de linha compara o Produto Interno Bruto (PIB) da região de Suape com os níveis de poluentes atmosféricos (como óxidos de enxofre e nitrogênio) ao longo da última década. A curva do PIB, que reflete o crescimento industrial, é confrontada com a linha dos poluentes, permitindo visualizar a relação entre desenvolvimento e impacto na qualidade do ar. Observa-se que, à medida que a atividade econômica cresceu, a concentração de poluentes seguiu uma tendência de alta.</p>
                 <div style="position: relative; height: 400px; width: 100%;">
                     <canvas id="airPollutionChart"></canvas>
                 </div>
-                <p class="chart-caption"><strong>Análise:</strong> Os dados indicam uma forte correlação positiva entre o crescimento econômico e a poluição do ar. Esse achado sugere que, apesar dos avanços tecnológicos, as atividades industriais do Complexo de Suape continuam a exercer uma pressão significativa sobre a atmosfera local.</p>
+                <div class="chart-caption destaque-cientifico mt-3">
+                    <span class="badge bg-primary me-2"><i class="fas fa-flask"></i> Análise</span>
+                    <strong>Os dados indicam uma forte correlação positiva entre o crescimento econômico e a poluição do ar.</strong> Esse achado sugere que, apesar dos avanços tecnológicos, as atividades industriais do Complexo de Suape continuam a exercer uma pressão significativa sobre a atmosfera local.
+                </div>
             </section>
 
             <section class="content-section chart-container" data-aos="fade-up" data-aos-delay="200">
                 <h2>Gráfico 2: Degradação de Manguezais</h2>
+                <div class="chart-controls mb-3">
+                    <button id="download-grafico2" class="btn btn-success">Baixar Dados CSV</button>
+                </div>
                 <p>Este gráfico de barras mostra a variação da área de manguezal na região de Suape em dois momentos: antes e depois da expansão do Complexo. Os dados foram obtidos a partir de análises de imagens de satélite. A barra "Área Original" representa a extensão do ecossistema antes do grande boom industrial, enquanto a barra "Área Atual" reflete a redução observada.</p>
                 <div style="position: relative; height: 400px; width: 100%;">
                     <canvas id="mangroveChart"></canvas>
                 </div>
-                <p class="chart-caption"><strong>Análise:</strong> A diminuição da área de manguezal é um dos resultados mais alarmantes de nossa pesquisa. Como um dos ecossistemas mais importantes para a biodiversidade e como barreira natural contra inundações, a perda de manguezais tem consequências graves e de longo prazo para a saúde ambiental da região.</p>
+                <div class="chart-caption destaque-cientifico mt-3">
+                    <span class="badge bg-primary me-2"><i class="fas fa-flask"></i> Análise</span>
+                    <strong>A diminuição da área de manguezal é um dos resultados mais alarmantes de nossa pesquisa.</strong> Como um dos ecossistemas mais importantes para a biodiversidade e como barreira natural contra inundações, a perda de manguezais tem consequências graves e de longo prazo para a saúde ambiental da região.
+                </div>
             </section>
 
             <section class="content-section" data-aos="fade-up" data-aos-delay="300">

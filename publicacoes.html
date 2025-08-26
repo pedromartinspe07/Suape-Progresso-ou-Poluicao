@@ -42,6 +42,9 @@
                             <a class="nav-link active" aria-current="page" href="publicacoes.html">Publicações</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="dados.html">Dados</a>
                         </li>
                         <li class="nav-item">
@@ -75,47 +78,164 @@
                 <p>Nesta seção, você pode acessar e baixar os documentos e materiais que produzimos como parte da nossa pesquisa. Acreditamos na importância da divulgação científica e na acessibilidade do conhecimento.</p>
             </section>
             
+            <!-- Filtros de navegação -->
             <section class="content-section" data-aos="fade-up" data-aos-delay="100">
+                <div class="publication-filters">
+                    <h3>Filtrar por categoria:</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Todas</button>
+                        <button class="filter-btn" data-filter="artigos">Artigos</button>
+                        <button class="filter-btn" data-filter="relatorios">Relatórios</button>
+                        <button class="filter-btn" data-filter="apresentacoes">Apresentações</button>
+                        <button class="filter-btn" data-filter="midia">Mídia</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="content-section" data-aos="fade-up" data-aos-delay="200">
                 <h2>Artigos e Relatórios</h2>
-                <div class="publication-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="assets/images/pdf-icon.svg" alt="Ícone de PDF" class="publication-icon">
+                
+                <div class="publication-item" data-category="artigos" data-aos="fade-up" data-aos-delay="300">
+                    <div class="publication-header">
+                        <img src="assets/images/pdf-icon.svg" alt="Ícone de PDF" class="publication-icon">
+                        <div class="publication-meta">
+                            <span class="publication-date">2025</span>
+                            <span class="publication-type">Artigo Científico</span>
+                        </div>
+                    </div>
                     <div class="publication-details">
                         <h3>Suape: O Dilema do Desenvolvimento</h3>
-                        <p class="pub-description">Este artigo aprofunda a análise dos impactos econômicos e ambientais, apresentando um estudo de caso sobre a coexistência de indústrias e ecossistemas sensíveis na região de Suape.</p>
-                        <a href="assets/docs/artigo1.pdf" download class="download-link">Baixar PDF</a>
+                        <div class="publication-tags">
+                            <span class="tag">Desenvolvimento Econômico</span>
+                            <span class="tag">Impactos Ambientais</span>
+                            <span class="tag">Análise de Caso</span>
+                        </div>
+                        <p class="pub-description">Este artigo aprofunda a análise dos impactos econômicos e ambientais, apresentando um estudo de caso sobre a coexistência de indústrias e ecossistemas sensíveis na região de Suape. A pesquisa investiga como o desenvolvimento industrial acelerado afeta a qualidade de vida das comunidades locais e a saúde dos ecossistemas marinhos e terrestres.</p>
+                        <div class="publication-actions">
+                            <a href="assets/docs/artigo1.pdf" download class="download-link">
+                                <i class="fas fa-download"></i> Baixar PDF
+                            </a>
+                            <a href="#" class="preview-link">
+                                <i class="fas fa-eye"></i> Visualizar Resumo
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="publication-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="assets/images/pdf-icon.svg" alt="Ícone de PDF" class="publication-icon">
+                <div class="publication-item" data-category="relatorios" data-aos="fade-up" data-aos-delay="400">
+                    <div class="publication-header">
+                        <img src="assets/images/pdf-icon.svg" alt="Ícone de PDF" class="publication-icon">
+                        <div class="publication-meta">
+                            <span class="publication-date">2025</span>
+                            <span class="publication-type">Relatório Técnico</span>
+                        </div>
+                    </div>
                     <div class="publication-details">
                         <h3>Análise dos Impactos na Biodiversidade Marinha</h3>
-                        <p class="pub-description">Um relatório detalhado que investiga as alterações na fauna e flora marinha da Baía de Suape causadas pela poluição e pela dragagem constante. Inclui dados de campo e observações.</p>
-                        <a href="assets/docs/artigo2.pdf" download class="download-link">Baixar PDF</a>
+                        <div class="publication-tags">
+                            <span class="tag">Biodiversidade</span>
+                            <span class="tag">Ecossistema Marinho</span>
+                            <span class="tag">Poluição</span>
+                            <span class="tag">Dragagem</span>
+                        </div>
+                        <p class="pub-description">Um relatório detalhado que investiga as alterações na fauna e flora marinha da Baía de Suape causadas pela poluição e pela dragagem constante. Inclui dados de campo, observações sistemáticas e análises laboratoriais que revelam a magnitude dos impactos sobre espécies endêmicas e migratórias.</p>
+                        <div class="publication-actions">
+                            <a href="assets/docs/artigo2.pdf" download class="download-link">
+                                <i class="fas fa-download"></i> Baixar PDF
+                            </a>
+                            <a href="#" class="preview-link">
+                                <i class="fas fa-eye"></i> Visualizar Resumo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item" data-category="relatorios" data-aos="fade-up" data-aos-delay="500">
+                    <div class="publication-header">
+                        <img src="assets/images/pdf-icon.svg" alt="Ícone de PDF" class="publication-icon">
+                        <div class="publication-meta">
+                            <span class="publication-date">2025</span>
+                            <span class="publication-type">Relatório Socioambiental</span>
+                        </div>
+                    </div>
+                    <div class="publication-details">
+                        <h3>Impactos Socioeconômicos nas Comunidades Locais</h3>
+                        <div class="publication-tags">
+                            <span class="tag">Comunidades Locais</span>
+                            <span class="tag">Impactos Sociais</span>
+                            <span class="tag">Economia Local</span>
+                            <span class="tag">Qualidade de Vida</span>
+                        </div>
+                        <p class="pub-description">Análise abrangente dos efeitos do desenvolvimento industrial de Suape sobre as comunidades tradicionais da região. O estudo documenta mudanças nos padrões de subsistência, acesso a recursos naturais, saúde pública e dinâmicas culturais, oferecendo uma perspectiva humana sobre o progresso econômico.</p>
+                        <div class="publication-actions">
+                            <a href="assets/docs/relatorio-socioambiental.pdf" download class="download-link">
+                                <i class="fas fa-download"></i> Baixar PDF
+                            </a>
+                            <a href="#" class="preview-link">
+                                <i class="fas fa-eye"></i> Visualizar Resumo
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="content-section other-media-section" data-aos="fade-up" data-aos-delay="400">
-                <h2>Outras Mídias</h2>
+            <section class="content-section other-media-section" data-aos="fade-up" data-aos-delay="600">
+                <h2>Apresentações e Mídia</h2>
                 <p>Navegue por outros formatos de conteúdo produzidos para a apresentação do nosso projeto.</p>
-                <div class="other-media-item" data-aos="fade-up" data-aos-delay="500">
-                    <img src="assets/images/presentation-icon.svg" alt="Ícone de Apresentação" class="media-icon">
-                    <div class="media-details">
-                        <h4>Apresentação do Trabalho de Conclusão da Pesquisa: Resumo Executivo</h4>
-                        <a href="assets/docs/apresentacao.pdf" download class="download-link">Baixar Apresentação</a>
+                
+                <div class="publication-item" data-category="apresentacoes" data-aos="fade-up" data-aos-delay="700">
+                    <div class="publication-header">
+                        <img src="assets/images/presentation-icon.svg" alt="Ícone de Apresentação" class="publication-icon">
+                        <div class="publication-meta">
+                            <span class="publication-date">2025</span>
+                            <span class="publication-type">Apresentação</span>
+                        </div>
+                    </div>
+                    <div class="publication-details">
+                        <h3>Apresentação do Trabalho de Conclusão da Pesquisa: Resumo Executivo</h3>
+                        <div class="publication-tags">
+                            <span class="tag">Resumo Executivo</span>
+                            <span class="tag">Apresentação</span>
+                            <span class="tag">Resultados</span>
+                        </div>
+                        <p class="pub-description">Apresentação completa dos principais achados da pesquisa, incluindo gráficos, análises estatísticas e recomendações para políticas públicas. Ideal para gestores, pesquisadores e interessados em compreender rapidamente os impactos de Suape.</p>
+                        <div class="publication-actions">
+                            <a href="assets/docs/apresentacao.pdf" download class="download-link">
+                                <i class="fas fa-download"></i> Baixar Apresentação
+                            </a>
+                            <a href="#" class="preview-link">
+                                <i class="fas fa-eye"></i> Visualizar Slides
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="youtube-shorts-item" data-aos="fade-up" data-aos-delay="600">
-                    <div class="media-details">
-                        <p class="media-description">Vídeo Informativo sobre Suape e a sua Problematica em torno do meio ambiente e as comunidades carentes que vivem em torno da mesma</p>
+                <div class="publication-item" data-category="midia" data-aos="fade-up" data-aos-delay="800">
+                    <div class="publication-header">
+                        <i class="fas fa-video publication-icon" style="font-size: 2rem; color: var(--accent-color-green);"></i>
+                        <div class="publication-meta">
+                            <span class="publication-date">2025</span>
+                            <span class="publication-type">Vídeo Documentário</span>
+                        </div>
                     </div>
-                    <div class="video-container">
-                        <iframe width="315" height="560" src="https://www.youtube.com/embed/lsFWFfbLfJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="publication-details">
+                        <h3>Suape: Progresso ou Poluição? - Documentário</h3>
+                        <div class="publication-tags">
+                            <span class="tag">Documentário</span>
+                            <span class="tag">Vídeo</span>
+                            <span class="tag">Divulgação</span>
+                        </div>
+                        <p class="pub-description">Vídeo informativo sobre Suape e sua problemática em torno do meio ambiente e as comunidades carentes que vivem em torno da mesma. O documentário apresenta depoimentos de moradores locais, especialistas e imagens inéditas da região.</p>
+                        <div class="video-container">
+                            <iframe width="315" height="560" src="https://www.youtube.com/embed/lsFWFfbLfJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="publication-actions">
+                            <a href="https://www.youtube.com/watch?v=lsFWFfbLfJU" target="_blank" class="download-link">
+                                <i class="fab fa-youtube"></i> Assistir no YouTube
+                            </a>
+                        </div>
                     </div>
                 </div>
-
             </section>
         </div>
     </main>

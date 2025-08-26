@@ -66,3 +66,71 @@ document.addEventListener('DOMContentLoaded', () => {
     */
     
 });
+
+// 6. Filtros de Publicações
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const publicationItems = document.querySelectorAll('.publication-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Filter publications
+            publicationItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+// 7. Filtros do Blog
+document.addEventListener('DOMContentLoaded', function() {
+    const blogFilterButtons = document.querySelectorAll('.blog-filters .filter-btn');
+    const blogPosts = document.querySelectorAll('.blog-post');
+
+    blogFilterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Remove active class from all buttons
+            blogFilterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Filter blog posts
+            blogPosts.forEach(post => {
+                const category = post.getAttribute('data-category');
+                
+                if (filter === 'all' || category === filter) {
+                    post.style.display = 'block';
+                    post.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+// CSS animation for fade in effect
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+`;
+document.head.appendChild(style);

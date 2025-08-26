@@ -26,6 +26,35 @@ document.addEventListener('DOMContentLoaded', () => {
     
     console.log('Cores carregadas:', { primaryColor, accentGreen, accentBrown, accentRed });
 
+    // Dados originais dos gráficos
+    const dadosGrafico1 = {
+        labels: ['2015', '2016', '2017', '2018', '2019', '2020'],
+        poluicao: [180, 210, 230, 250, 275, 300],
+        pib: [50, 55, 60, 68, 75, 82]
+    };
+
+    const dadosGrafico2 = {
+        labels: ['Antes do Desenvolvimento', 'Após o Desenvolvimento'],
+        area: [8500, 3200]
+    };
+
+    // Função para gerar CSV
+    function exportarCSV(headers, rows, nomeArquivo) {
+        let csv = headers.join(',') + '\n';
+        rows.forEach(row => {
+            csv += row.join(',') + '\n';
+        });
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = nomeArquivo;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
     // ===========================================
     // Gráfico 1: Crescimento Econômico vs. Poluição do Ar
     // ===========================================
@@ -35,13 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (airPollutionChartElement) {
         try {
-            const pollutionChart = new Chart(airPollutionChartElement, {
-                type: 'line',
-                data: {
-                    labels: ['2015', '2016', '2017', '2018', '2019', '2020'],
-                    datasets: [{
+            function getDatasetsGrafico1(tipo) {
+                const datasets = [];
+                if (tipo === 'ambos' || tipo === 'poluicao') {
+                    datasets.push({
                         label: 'Poluição do Ar (μg/m³)',
-                        data: [180, 210, 230, 250, 275, 300],
+                        data: dadosGrafico1.poluicao,
                         borderColor: accentRed,
                         backgroundColor: 'rgba(212, 93, 93, 0.2)',
                         yAxisID: 'y',
@@ -49,9 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         pointStyle: 'circle',
                         pointRadius: 6,
                         pointHoverRadius: 8
-                    }, {
+                    });
+                }
+                if (tipo === 'ambos' || tipo === 'pib') {
+                    datasets.push({
                         label: 'PIB (bilhões de R$)',
-                        data: [50, 55, 60, 68, 75, 82],
+                        data: dadosGrafico1.pib,
                         borderColor: primaryColor,
                         backgroundColor: primaryColor,
                         yAxisID: 'y1',
@@ -59,7 +90,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         pointStyle: 'rectRot',
                         pointRadius: 6,
                         pointHoverRadius: 8
-                    }]
+                    });
+                }
+                return datasets;
+            }
+
+            let pollutionChart;
+            pollutionChart = new Chart(airPollutionChartElement, {
+                type: 'line',
+                data: {
+                    labels: dadosGrafico1.labels,
+                    datasets: getDatasetsGrafico1('ambos')
                 },
                 options: {
                     responsive: true,
@@ -120,7 +161,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-            console.log('Gráfico 1 criado com sucesso');
+
+            // Filtro de variáveis
+            const selectGrafico1 = document.getElementById('grafico1-variavel');
+            if (selectGrafico1) {
+                selectGrafico1.addEventListener('change', (e) => {
+                    const tipo = e.target.value;
+                    pollutionChart.data.datasets = getDatasetsGrafico1(tipo);
+                    pollutionChart.update();
+                });
+            }
+
+            // Botão de download CSV
+            const btnDownload1 = document.getElementById('download-grafico1');
+            if (btnDownload1) {
+                btnDownload1.addEventListener('click', () => {
+                    const headers = ['Ano'];
+                    const rows = dadosGrafico1.labels.map((ano, i) => [ano]);
+                    if (selectGrafico1.value === 'ambos' || selectGrafico1.value === 'poluicao') {
+                        headers.push('Poluição do Ar (μg/m³)');
+                        rows.forEach((row, i) => row.push(dadosGrafico1.poluicao[i]));
+                    }
+                    if (selectGrafico1.value === 'ambos' || selectGrafico1.value === 'pib') {
+                        headers.push('PIB (bilhões de R$)');
+                        rows.forEach((row, i) => row.push(dadosGrafico1.pib[i]));
+                    }
+                    exportarCSV(headers, rows, 'grafico1_suape.csv');
+                });
+            }
+
         } catch (error) {
             console.error('Erro ao criar o gráfico 1:', error);
         }
@@ -140,18 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const mangroveChart = new Chart(mangroveChartElement, {
                 type: 'bar',
                 data: {
-                    labels: ['Área Original (2000)', 'Área Atual (2020)'],
+                    labels: dadosGrafico2.labels,
                     datasets: [{
                         label: 'Área de Manguezal',
-                        data: [1500, 1050],
-                        backgroundColor: [
-                            accentGreen,
-                            accentBrown
-                        ],
-                        borderColor: [
-                            accentGreen,
-                            accentBrown
-                        ],
+                        data: dadosGrafico2.area,
+                        backgroundColor: [accentGreen, accentBrown],
+                        borderColor: [accentGreen, accentBrown],
                         borderWidth: 1,
                         barPercentage: 0.6,
                     }]
@@ -188,7 +251,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-            console.log('Gráfico 2 criado com sucesso');
+
+            // Botão de download CSV para gráfico 2
+            const btnDownload2 = document.getElementById('download-grafico2');
+            if (btnDownload2) {
+                btnDownload2.addEventListener('click', () => {
+                    const headers = ['Categoria', 'Área de Manguezal (ha)'];
+                    const rows = dadosGrafico2.labels.map((label, i) => [label, dadosGrafico2.area[i]]);
+                    exportarCSV(headers, rows, 'grafico2_manguezal.csv');
+                });
+            }
+
         } catch (error) {
             console.error('Erro ao criar o gráfico 2:', error);
         }
