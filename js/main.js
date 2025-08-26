@@ -2,44 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Animação de Scroll (Fade-in) usando IntersectionObserver (Removido, agora usando AOS)
-    /*
-    const sections = document.querySelectorAll('.content-section, .chart-container, .intro-section, .challenge-section');
-    
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    */
-
-    // Inicializar AOS
+    // 1. Inicializar AOS (Animate on Scroll)
     AOS.init({
-        duration: 1000, // duração das animações em ms
-        once: true,    // se as animações devem ocorrer apenas uma vez
+        duration: 1000,
+        once: true,
     });
 
-    // 2. Destacar o link da página atual na navegação (Removido - Bootstrap agora lida com isso)
-    /*
-    const navLinks = document.querySelectorAll('header nav .nav-menu li a');
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href').split('/').pop();
-        if (linkPath === currentPath) {
-            link.classList.add('active-link');
-        }
-    });
-    */
-
-    // 3. Efeito de scroll suave para links de âncora
+    // 2. Efeito de scroll suave para links de âncora
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -50,13 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Funcionalidade do Botão de Voltar ao Topo
-    // Assume que o botão está no HTML com a classe 'back-to-top'
+    // 3. Funcionalidade do Botão de Voltar ao Topo
     const backToTopButton = document.querySelector('.back-to-top');
 
     if (backToTopButton) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
+            if (window.scrollY > 400) {
                 backToTopButton.classList.add('show');
             } else {
                 backToTopButton.classList.remove('show');
@@ -68,33 +36,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Funcionalidade do Menu Hambúrguer (Removido - Bootstrap agora lida com isso)
-    /*
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    // 4. Funcionalidade de Modo Escuro (Dark Mode)
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
+    // Aplica o tema salvo no localStorage
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        if (darkModeToggle) {
+            darkModeToggle.checked = true;
+        }
+    }
 
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         });
     }
-    */
 
-    // 6. Remover eventos de mouse do botão CTA (movido para CSS)
-    // O seu arquivo styles.css já tem a regra .cta-button:hover,
-    // então a lógica JS abaixo não é necessária e pode ser removida.
-    // const ctaButton = document.querySelector('.cta-button');
-    // if (ctaButton) {
-    //     ctaButton.addEventListener('mouseover', ...);
-    //     ctaButton.addEventListener('mouseout', ...);
-    // }
-
+    // 5. Efeitos de Parallax Suaves (para seções com a classe 'parallax-bg')
+    document.querySelectorAll('.parallax-bg').forEach(bg => {
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            bg.style.transform = `translateY(${scrollPosition * 0.2}px)`; // Ajuste o valor 0.2 para controlar a velocidade
+        });
+    });
+    
 });

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formStatus.textContent = 'Enviando sua mensagem...';
         formStatus.style.color = '#333';
 
-        emailjs.sendForm("service_zvyko2o", "template_l1f5ycj", this)
+        emailjs.sendForm("service_zvyko2o", "template_qj1a2j2", this)
             .then(() => {
                 formStatus.textContent = '✅ Mensagem enviada com sucesso!';
                 formStatus.style.color = 'green';
