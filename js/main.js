@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ====================================================================
 
     // URL da sua API do backend
-    const API_URL = 'http://localhost:5000/api/posts';
+    const API_URL = 'https://suape-progresso-ou-poluicao-backend-production.up.railway.app/api/posts';
     
     // Filtro de posts
     const filterButtons = document.querySelectorAll('.filter-btn');
