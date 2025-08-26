@@ -1380,3 +1380,94 @@ body.dark-mode .form-group textarea {
         padding: 2rem 1rem;
     }
 }
+
+/* =======================================
+    7. Estilos de Formulários de Autenticação
+   ======================================= */
+   .form-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 3rem 0;
+    margin-top: 0;
+    box-shadow: none;
+    background-color: var(--secondary-color);
+}
+
+.auth-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--background-light);
+    padding: 3rem;
+    border-radius: var(--border-radius-soft);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.auth-form .form-group {
+    text-align: left;
+}
+
+.auth-form .cta-button {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.form-message {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Cores de status */
+.form-message.success {
+    color: var(--accent-color-green);
+}
+
+.form-message.error {
+    color: #e57373; /* Um tom de vermelho */
+}
+
+.form-link-text {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.login-main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-footer {
+    margin-top: 0;
+}
+
+/* =======================================
+    8. Estilos do Painel de Controle
+   ======================================= */
+.admin-header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 1.25rem 0;
+    box-shadow: var(--shadow);
+}
+
+.admin-header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h2 {
+    color: var(--light-text-color);
+    margin: 0;
+}
+
+.admin-nav .cta-button {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle - Suape</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="container header-container">
+            <h2>Painel de Controle</h2>
+            <nav class="admin-nav">
+                <a href="/painel.html">Início</a>
+                <button id="logout-btn" class="cta-button">Sair</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <div class="container" data-aos="fade-up">
+                <h1 class="page-title">Adicionar Novo Post</h1>
+                <form id="add-post-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="title">Título do Post</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Data (Ex: "26 de Agosto, 2025")</label>
+                        <input type="text" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Categoria</label>
+                        <input type="text" id="category" name="category" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="excerpt">Resumo (Excerto)</label>
+                        <textarea id="excerpt" name="excerpt" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">URL da Imagem</label>
+                        <input type="text" id="image" name="image">
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags (separadas por vírgula)</label>
+                        <input type="text" id="tags" name="tags">
+                    </div>
+                    <button type="submit" class="cta-button">Publicar Post</button>
+                    <p class="form-message" id="add-post-message"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Suape: Progresso ou Poluição? Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/painel.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Suape: Progresso ou Poluição?</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <main class="login-main">
+        <section class="content-section form-page">
+            <div class="container" data-aos="fade-up">
+                <h1 class="page-title">Login de Administrador</h1>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="username">Nome de Usuário</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="cta-button">Entrar</button>
+                    <p class="form-message" id="login-message"></p>
+                </form>
+                <p class="form-link-text">Não tem uma conta? <a href="/cadastro.html" class="card-link">Crie uma aqui</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="login-footer">
+        <div class="container">
+            <p>&copy; 2024 Suape: Progresso ou Poluição? Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>
