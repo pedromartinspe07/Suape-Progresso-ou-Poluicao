@@ -119,7 +119,7 @@ footer {
 /* Estilo para a descrição do modelo 3D */
 .model-caption {
     text-align: center;
-    color: var(--light-text-color); /* Alterado para a variável correta */
+    color: black;
     font-family: 'Open Sans', sans-serif;
     font-size: 0.9rem;
     padding: 0 1rem 1rem;
