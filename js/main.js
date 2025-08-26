@@ -2,7 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Animação de Scroll (Fade-in) usando IntersectionObserver
+    // 1. Animação de Scroll (Fade-in) usando IntersectionObserver (Removido, agora usando AOS)
+    /*
     const sections = document.querySelectorAll('.content-section, .chart-container, .intro-section, .challenge-section');
     
     const observer = new IntersectionObserver((entries, obs) => {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+    */
 
     // Inicializar AOS
     AOS.init({

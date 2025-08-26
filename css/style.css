@@ -60,103 +60,6 @@ header {
     z-index: 1000;
 }
 
-/* Removido: Estilos de navegação customizados, agora gerenciados pelo Bootstrap */
-/*
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-.logo a {
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-    font-size: 1.75rem;
-    color: var(--light-text-color);
-    text-decoration: none;
-    transition: color 0.4s ease;
-    letter-spacing: 1px;
-}
-
-.logo a:hover {
-    color: var(--accent-color-green);
-}
-
-header nav .nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
-}
-
-header nav .nav-menu li a {
-    color: var(--light-text-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.4s;
-    will-change: color;
-}
-
-header nav .nav-menu li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--accent-color-green);
-    border-radius: 2px;
-    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: width;
-}
-
-header nav .nav-menu li a:hover::after,
-header nav .nav-menu li a.active-link::after {
-    width: 100%;
-}
-
-header nav .nav-menu li a:hover,
-header nav .nav-menu li a.active-link {
-    color: var(--accent-color-green);
-}
-*/
-
-/* Menu Hambúrguer (invisível em desktop) */
-/*
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.menu-toggle .bar {
-    width: 30px;
-    height: 3px;
-    background-color: var(--light-text-color);
-    transition: all 0.4s ease-in-out;
-    will-change: transform, opacity;
-}
-
-/* Animação do botão de hambúrguer quando ativo */
-/*
-.menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
-.menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-.menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-*/
-
 /* Conteúdo Principal */
 main {
     padding: 3rem 0;
@@ -211,16 +114,22 @@ footer {
     border-radius: var(--border-radius-soft);
     box-shadow: var(--shadow);
     margin-bottom: 2.5rem;
+    /* Removido: Animação via IntersectionObserver, agora gerenciada por AOS */
+    /*
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
     will-change: opacity, transform;
+    */
 }
 
+/* Removido: Classe .visible, agora gerenciada por AOS */
+/*
 .content-section.visible {
     opacity: 1;
     transform: translateY(0);
 }
+*/
 
 /* Estilos Específicos da Home */
 .hero-section {
