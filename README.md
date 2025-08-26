@@ -1,6 +1,6 @@
 # Suape: Progresso ou Poluição?
 
-## Trabalho de Conclusão de Curso (TCC) - Colégio Imaculada da Conceição
+## Trabalho de Conclusão de Pesquisa do Ensino Médio - Colégio Imaculada da Conceição
 
 ![Banner do projeto Suape: Progresso ou Poluição?](assets/images/banner.JPG)
 
