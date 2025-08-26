@@ -56,11 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 5. Efeitos de Parallax Suaves (para seções com a classe 'parallax-bg')
+    /*
     document.querySelectorAll('.parallax-bg').forEach(bg => {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.pageYOffset;
             bg.style.transform = `translateY(${scrollPosition * 0.2}px)`; // Ajuste o valor 0.2 para controlar a velocidade
         });
     });
+    */
     
 });
