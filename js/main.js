@@ -1,136 +1,174 @@
-// js/main.js
+// Ativa o Dark Mode no carregamento da página com base na preferência do usuário
+function applyTheme(isDarkMode) {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        document.getElementById('darkModeToggle').checked = true;
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+        document.getElementById('darkModeToggle').checked = false;
+    }
+}
+
+const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    applyTheme(savedTheme === 'dark');
+} else {
+    applyTheme(userPrefersDark);
+}
+
+document.getElementById('darkModeToggle').addEventListener('change', (e) => {
+    if (e.target.checked) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// ====================================================================
+// Código para animações (AOS) e rolagem suave
+// ====================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. Inicializar AOS (Animate on Scroll)
+    // Inicializa a biblioteca AOS
     AOS.init({
         duration: 1000,
         once: true,
     });
-
-    // 2. Efeito de scroll suave para links de âncora
+    
+    // Adiciona evento de clique para rolagem suave para links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 
-    // 3. Funcionalidade do Botão de Voltar ao Topo
-    const backToTopButton = document.querySelector('.back-to-top');
+    // ====================================================================
+    // Código para buscar e renderizar posts do blog (NOVO)
+    // ====================================================================
 
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
+    // URL da sua API do backend
+    const API_URL = 'http://localhost:5000/api/posts';
+    
+    // Filtro de posts
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                document.querySelectorAll('.blog-post').forEach(post => {
+                    const postCategory = post.dataset.category;
+                    if (filter === 'all' || postCategory === filter) {
+                        post.style.display = 'block';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
         });
     }
 
-    // 4. Funcionalidade de Modo Escuro (Dark Mode)
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    // Se a página for o blog.html, faça a requisição para a API
+    // Usei document.querySelector para verificar se os elementos do blog existem
+    const blogPageContent = document.querySelector('.blog-grid');
+    if (blogPageContent) {
+        fetchPosts();
+    }
+});
 
-    // Aplica o tema salvo no localStorage
-    if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        if (darkModeToggle) {
-            darkModeToggle.checked = true;
+async function fetchPosts() {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error(`Erro na rede: ${response.statusText}`);
+        }
+        const posts = await response.json();
+        renderPosts(posts);
+    } catch (error) {
+        console.error("Falha ao buscar posts:", error);
+        // Opcional: mostrar uma mensagem de erro na interface
+        const blogContainer = document.querySelector('.blog-grid');
+        if (blogContainer) {
+            blogContainer.innerHTML = '<p class="text-danger">Não foi possível carregar os posts. Tente novamente mais tarde.</p>';
         }
     }
+}
 
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('change', () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-        });
-    }
-
-    // 5. Efeitos de Parallax Suaves (para seções com a classe 'parallax-bg')
-    /*
-    document.querySelectorAll('.parallax-bg').forEach(bg => {
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.pageYOffset;
-            bg.style.transform = `translateY(${scrollPosition * 0.2}px)`; // Ajuste o valor 0.2 para controlar a velocidade
-        });
-    });
-    */
+function renderPosts(posts) {
+    const featuredPostContainer = document.querySelector('.blog-post.featured');
+    const blogGridContainer = document.querySelector('.blog-grid');
     
-});
-
-// 6. Filtros de Publicações
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const publicationItems = document.querySelectorAll('.publication-item');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Filter publications
-            publicationItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                
-                if (filter === 'all' || category === filter) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeIn 0.5s ease-in-out';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-});
-
-// 7. Filtros do Blog
-document.addEventListener('DOMContentLoaded', function() {
-    const blogFilterButtons = document.querySelectorAll('.blog-filters .filter-btn');
-    const blogPosts = document.querySelectorAll('.blog-post');
-
-    blogFilterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Remove active class from all buttons
-            blogFilterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Filter blog posts
-            blogPosts.forEach(post => {
-                const category = post.getAttribute('data-category');
-                
-                if (filter === 'all' || category === filter) {
-                    post.style.display = 'block';
-                    post.style.animation = 'fadeIn 0.5s ease-in-out';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        });
-    });
-});
-
-// CSS animation for fade in effect
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+    // Limpa os posts existentes
+    if (featuredPostContainer) {
+        featuredPostContainer.innerHTML = '';
+        featuredPostContainer.style.display = 'none'; // Oculta o container até que um post seja adicionado
     }
-`;
-document.head.appendChild(style);
+    if (blogGridContainer) {
+        blogGridContainer.innerHTML = '';
+    }
+
+    if (!posts || posts.length === 0) {
+        if (blogGridContainer) {
+            blogGridContainer.innerHTML = '<p>Nenhum post encontrado.</p>';
+        }
+        return;
+    }
+
+    // Renderiza o primeiro post como destaque
+    const featuredPost = posts[0];
+    if (featuredPostContainer) {
+        featuredPostContainer.innerHTML = createPostHTML(featuredPost);
+        featuredPostContainer.dataset.category = featuredPost.category;
+        featuredPostContainer.style.display = 'block';
+    }
+
+    // Renderiza os posts restantes na grade
+    const recentPosts = posts.slice(1);
+    if (blogGridContainer) {
+        recentPosts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = 'blog-post';
+            postElement.dataset.category = post.category;
+            postElement.innerHTML = createPostHTML(post);
+            blogGridContainer.appendChild(postElement);
+        });
+    }
+
+    // Atualiza a animação AOS após a renderização dos posts
+    AOS.refresh();
+}
+
+function createPostHTML(post) {
+    const tagsHtml = post.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+    
+    return `
+        <div class="post-header">
+            <div class="post-meta">
+                <span class="post-date">${post.date}</span>
+                <span class="post-category">${post.category}</span>
+                <span class="post-read-time"><i class="fas fa-clock"></i> 5 min de leitura</span>
+            </div>
+            <h3>${post.title}</h3>
+        </div>
+        <div class="post-content">
+            ${post.image ? `<img src="${post.image}" alt="${post.title}" class="post-image">` : ''}
+            <p class="post-excerpt">${post.excerpt}</p>
+            <div class="post-tags">
+                ${tagsHtml}
+            </div>
+            <a href="javascript:void(0)" class="read-more-btn">Ler mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+    `;
+}
