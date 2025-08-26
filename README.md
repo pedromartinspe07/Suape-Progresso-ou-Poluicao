@@ -1,31 +1,44 @@
 # Suape: Progresso ou Poluição?
 
-## Trabalho de Conclusão do Ensino Médio - Colégio Imaculada da Conceição
+## Trabalho de Conclusão de Curso (TCC) - Colégio Imaculada da Conceição
 
-### Resumo do Projeto
-Este é o trabalho de conclusão de curso do Ensino Médio, com o tema "Suape: Progresso ou Poluição?". O projeto é uma análise crítica e científica sobre o Complexo Industrial Portuário de Suape, Pernambuco, e seus impactos no meio ambiente e nas comunidades locais.
+![Banner do projeto Suape: Progresso ou Poluição?](assets/images/banner.JPG)
 
-O site foi desenvolvido para apresentar a pesquisa de forma visual e interativa, com o objetivo de conscientizar o público sobre o delicado equilíbrio entre o desenvolvimento econômico e a sustentabilidade ambiental na região.
+### 🧐 Sobre o Projeto
+Este projeto é o Trabalho de Conclusão de Curso (TCC) do Ensino Médio, com o tema **"Suape: Progresso ou Poluição?"**. O objetivo é realizar uma análise crítica e científica sobre o Complexo Industrial Portuário de Suape, em Pernambuco, investigando seus impactos socioambientais.
 
-### Principais Funcionalidades
-- **Análise de Dados**: Gráficos interativos (criados com Chart.js) que comparam indicadores econômicos com dados ambientais.
-- **Estrutura Científica**: Páginas dedicadas à metodologia, referencial teórico e dados brutos da pesquisa.
-- **Design Profissional**: Interface limpa e científica, inspirada em princípios de **UI/UX**, para uma experiência de usuário intuitiva.
-- **Conteúdo Educativo**: Glossário de termos técnicos e área para publicações de pesquisa.
+O site foi desenvolvido para apresentar os resultados da pesquisa de forma visual e interativa, com gráficos e dados acessíveis. Nosso propósito é conscientizar o público sobre o delicado equilíbrio entre o desenvolvimento econômico e a sustentabilidade ambiental na região.
 
-### Tecnologias Utilizadas
-O site foi construído utilizando as seguintes tecnologias:
-- **HTML5**: Estrutura e marcação de conteúdo.
-- **CSS3**: Estilização e design (com foco em UI/UX).
-- **JavaScript (Vanilla JS)**: Interatividade, animações e lógica.
-- **Chart.js**: Biblioteca JavaScript para criação de gráficos dinâmicos.
-- **Google Fonts**: Tipografia profissional (Montserrat e Open Sans).
+### ✨ Funcionalidades
+* **Análise de Dados Interativa**: Apresentação de dados da pesquisa por meio de gráficos dinâmicos e visuais, criados com a biblioteca Chart.js.
+* **Estrutura Científica**: Seções dedicadas à **metodologia**, **referencial teórico**, **resultados** e **dados brutos**, proporcionando uma visão completa do rigor científico da pesquisa.
+* **Design Profissional e Intuitivo**: Interface limpa e moderna, desenvolvida com princípios de **UI/UX** para garantir uma navegação fluida e agradável.
+* **Conteúdo Educacional**: Além dos dados, o site oferece um **blog** com artigos, um **glossário** de termos técnicos e uma área para **publicações** da equipe.
+* **Funcionalidade de Autenticação**: Páginas de **Login** e **Cadastro** para acesso a conteúdos exclusivos e recursos adicionais do projeto.
 
-### Como Visualizar o Site
-Não é necessário instalar nada! Para visualizar o site, basta abrir o arquivo `index.html` em qualquer navegador web moderno.
+---
+
+### 💻 Tecnologias
+O projeto foi construído utilizando um conjunto de tecnologias voltadas para o desenvolvimento web:
+
+* **HTML5**: Para a estrutura semântica do conteúdo.
+* **CSS3**: Para a estilização e responsividade da interface.
+* **JavaScript**: Para a interatividade do site, incluindo animações e a lógica do modo claro/escuro.
+* **Bootstrap 5.3**: Framework CSS para agilizar o desenvolvimento e garantir a responsividade em diferentes dispositivos.
+* **AOS (Animate on Scroll)**: Biblioteca para animações de rolagem, adicionando um toque profissional à experiência.
+* **Chart.js**: Biblioteca essencial para a criação e visualização de gráficos interativos.
+* **Google Fonts**: Para a tipografia, utilizando as fontes `Montserrat` e `Open Sans`.
+* **Font Awesome**: Para os ícones, como os de download e visualização.
+
+---
+
+### 🚀 Como Acessar o Projeto
+Você não precisa instalar nada! Para visualizar o site, basta seguir estes passos:
+
+1.  Baixe ou clone este repositório.
+2.  Abra o arquivo `index.html` em qualquer navegador web moderno (como Chrome, Firefox ou Edge).
+
+Você pode usar o comando abaixo no terminal para abri-lo rapidamente (no macOS):
 
 ```bash
-# Navegue até a pasta do projeto
-cd /caminho/para/sua/pasta
-# Abra o arquivo index.html no navegador
-open index.html 
+open index.html

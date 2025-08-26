@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="assets/images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uW/r8Wl630WpD/jXgD0R8T2bB/pG/Pz4Jp5X5K5e5p5d5e5p5u5g5u5g5u5g5u5g5u5g5u5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uW/r8Wl630WpD/jXgD0R8T2bB/pG/Pz4Jp5X5K5e5p5d5e5p5u5g5u5g5u5g5u5g5u5g5u5g5u5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo.png" alt="Ícone da Logo" height="40">  
+                    <img src="assets/images/logo.png" alt="Ícone da Logo" height="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -56,14 +56,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contato.html">Contato</a>
                         </li>
-                    <li class="nav-item dark-mode-toggle-container">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="darkModeToggle">
-                                <label class="form-check-label" for="darkModeToggle">
-                                    <i class="fas fa-sun"></i>
-                                    <i class="fas fa-moon"></i>
-                                </label>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastro.html">Cadastro</a>
+                        </li>
+                        <li class="nav-item dark-mode-toggle-container">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="darkModeToggle">
+                                    <label class="form-check-label" for="darkModeToggle">
+                                        <i class="fas fa-sun"></i>
+                                        <i class="fas fa-moon"></i>
+                                    </label>
+                                </div>
                         </li>
                     </ul>
                 </div>
@@ -77,8 +83,7 @@
             <section class="content-section" data-aos="fade-up">
                 <p>Nesta seção, você pode acessar e baixar os documentos e materiais que produzimos como parte da nossa pesquisa. Acreditamos na importância da divulgação científica e na acessibilidade do conhecimento.</p>
             </section>
-            
-            <!-- Filtros de navegação -->
+
             <section class="content-section" data-aos="fade-up" data-aos-delay="100">
                 <div class="publication-filters">
                     <h3>Filtrar por categoria:</h3>
@@ -91,10 +96,10 @@
                     </div>
                 </div>
             </section>
-            
+
             <section class="content-section" data-aos="fade-up" data-aos-delay="200">
                 <h2>Artigos e Relatórios</h2>
-                
+
                 <div class="publication-item" data-category="artigos" data-aos="fade-up" data-aos-delay="300">
                     <div class="publication-header">
                         <img src="assets/images/pdf-icon.svg" alt="Ícone de PDF" class="publication-icon">
@@ -182,7 +187,7 @@
             <section class="content-section other-media-section" data-aos="fade-up" data-aos-delay="600">
                 <h2>Apresentações e Mídia</h2>
                 <p>Navegue por outros formatos de conteúdo produzidos para a apresentação do nosso projeto.</p>
-                
+
                 <div class="publication-item" data-category="apresentacoes" data-aos="fade-up" data-aos-delay="700">
                     <div class="publication-header">
                         <img src="assets/images/presentation-icon.svg" alt="Ícone de Apresentação" class="publication-icon">
@@ -209,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="publication-item" data-category="midia" data-aos="fade-up" data-aos-delay="800">
                     <div class="publication-header">
                         <i class="fas fa-video publication-icon" style="font-size: 2rem; color: var(--accent-color-green);"></i>
@@ -219,7 +224,7 @@
                         </div>
                     </div>
                     <div class="publication-details">
-                        <h3>Suape: Progresso ou Poluição? - Documentário</h3>
+                        <h3>E Você? Progresso ou Poluição #portodesuape #porto #pesquisa #causa #pernambuco</h3>
                         <div class="publication-tags">
                             <span class="tag">Documentário</span>
                             <span class="tag">Vídeo</span>
@@ -227,10 +232,10 @@
                         </div>
                         <p class="pub-description">Vídeo informativo sobre Suape e sua problemática em torno do meio ambiente e as comunidades carentes que vivem em torno da mesma. O documentário apresenta depoimentos de moradores locais, especialistas e imagens inéditas da região.</p>
                         <div class="video-container">
-                            <iframe width="315" height="560" src="https://www.youtube.com/embed/lsFWFfbLfJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="315" height="560" src="http://www.youtube.com/watch?v=lsFWFfbLfJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="publication-actions">
-                            <a href="https://www.youtube.com/watch?v=lsFWFfbLfJU" target="_blank" class="download-link">
+                            <a href="http://www.youtube.com/watch?v=lsFWFfbLfJU" target="_blank" class="download-link">
                                 <i class="fab fa-youtube"></i> Assistir no YouTube
                             </a>
                         </div>
