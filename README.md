@@ -1,11 +1,11 @@
 # Suape: Progresso ou Poluição?
 
-## Trabalho de Conclusão de Curso (TCC) - Colégio Imaculada da Conceição
+## Trabalho de Conclusão de Pesquisa do Ensino Médio - Colégio Imaculada da Conceição
 
 ![Banner do projeto Suape: Progresso ou Poluição?](assets/images/banner.JPG)
 
 ### 🧐 Sobre o Projeto
-Este projeto é o Trabalho de Conclusão de Curso (TCC) do Ensino Médio, com o tema **"Suape: Progresso ou Poluição?"**. O objetivo é realizar uma análise crítica e científica sobre o Complexo Industrial Portuário de Suape, em Pernambuco, investigando seus impactos socioambientais.
+Este projeto é o Trabalho de Conclusão de Pesquisa do Ensino Médio, com o tema **"Suape: Progresso ou Poluição?"**. O objetivo é realizar uma análise crítica e científica sobre o Complexo Industrial Portuário de Suape, em Pernambuco, investigando seus impactos socioambientais.
 
 O site foi desenvolvido para apresentar os resultados da pesquisa de forma visual e interativa, com gráficos e dados acessíveis. Nosso propósito é conscientizar o público sobre o delicado equilíbrio entre o desenvolvimento econômico e a sustentabilidade ambiental na região.
 
