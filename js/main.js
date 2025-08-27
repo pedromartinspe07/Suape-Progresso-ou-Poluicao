@@ -1,13 +1,34 @@
-// Ativa o Dark Mode no carregamento da página com base na preferência do usuário
+// URL da sua API no Railway
+const API_URL_BASE = 'https://suape-progresso-ou-poluicao-backend-production.up.railway.app';
+
+// ====================================================================
+// Variáveis de Estado
+// ====================================================================
+let currentPage = 1;
+const postsPerPage = 6;
+let currentSearchTerm = '';
+let currentCategory = 'all';
+
+// ====================================================================
+// Lógica de Ativação de Tema (Dark/Light Mode)
+// ====================================================================
+
 function applyTheme(isDarkMode) {
     if (isDarkMode) {
         document.body.classList.add('dark-mode');
         document.body.classList.remove('light-mode');
-        document.getElementById('darkModeToggle').checked = true;
+        // Verifica se o elemento existe antes de tentar acessá-lo
+        const toggle = document.getElementById('darkModeToggle');
+        if (toggle) {
+            toggle.checked = true;
+        }
     } else {
         document.body.classList.remove('dark-mode');
         document.body.classList.add('light-mode');
-        document.getElementById('darkModeToggle').checked = false;
+        const toggle = document.getElementById('darkModeToggle');
+        if (toggle) {
+            toggle.checked = false;
+        }
     }
 }
 
@@ -18,22 +39,6 @@ if (savedTheme) {
 } else {
     applyTheme(userPrefersDark);
 }
-
-document.getElementById('darkModeToggle').addEventListener('change', (e) => {
-    if (e.target.checked) {
-        document.body.classList.add('dark-mode');
-        document.body.classList.remove('light-mode');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
-    }
-});
-
-// ====================================================================
-// Código para animações (AOS) e rolagem suave
-// ====================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializa a biblioteca AOS
@@ -46,63 +51,90 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
-    // ====================================================================
-    // Código para buscar e renderizar posts do blog (NOVO)
-    // ====================================================================
-
-    // URL da sua API do backend
-    const API_URL = 'https://suape-progresso-ou-poluicao-backend-production.up.railway.app/api/posts';
-    
-    // Filtro de posts
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    if (filterButtons.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-                document.querySelectorAll('.blog-post').forEach(post => {
-                    const postCategory = post.dataset.category;
-                    if (filter === 'all' || postCategory === filter) {
-                        post.style.display = 'block';
-                    } else {
-                        post.style.display = 'none';
-                    }
-                });
-
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-            });
+    // Lógica para alternar o tema com base no clique
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            }
         });
     }
 
-    // Se a página for o blog.html, faça a requisição para a API
-    // Usei document.querySelector para verificar se os elementos do blog existem
+    // ====================================================================
+    // Código para buscar e renderizar posts do blog (Atualizado)
+    // ====================================================================
+    
     const blogPageContent = document.querySelector('.blog-grid');
     if (blogPageContent) {
         fetchPosts();
+
+        const searchForm = document.getElementById('search-form');
+        if (searchForm) {
+            searchForm.addEventListener('submit', handleSearchPosts);
+        }
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        if (filterButtons.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    currentCategory = button.dataset.filter;
+                    currentPage = 1; // Reseta a página ao mudar o filtro
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    fetchPosts();
+                });
+            });
+        }
     }
 });
 
+// ====================================================================
+// Funções de Gerenciamento de Posts
+// ====================================================================
+
 async function fetchPosts() {
+    const blogContainer = document.querySelector('.blog-grid');
+    if (!blogContainer) return;
+    
+    // Mostra um estado de carregamento enquanto a requisição é feita
+    blogContainer.innerHTML = '<p class="text-center text-gray-500">Carregando posts...</p>';
+
     try {
-        const response = await fetch(API_URL);
+        let apiUrl = `${API_URL_BASE}/api/posts?page=${currentPage}&per_page=${postsPerPage}&search=${currentSearchTerm}`;
+
+        // Se uma categoria estiver selecionada, adicione-a à URL da requisição
+        if (currentCategory !== 'all') {
+            apiUrl += `&category=${currentCategory}`;
+        }
+        
+        const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`Erro na rede: ${response.statusText}`);
         }
-        const posts = await response.json();
-        renderPosts(posts);
+        const data = await response.json();
+        
+        renderPosts(data.posts);
+        renderPagination(data.total_pages, data.current_page);
+
     } catch (error) {
         console.error("Falha ao buscar posts:", error);
-        // Opcional: mostrar uma mensagem de erro na interface
-        const blogContainer = document.querySelector('.blog-grid');
-        if (blogContainer) {
-            blogContainer.innerHTML = '<p class="text-danger">Não foi possível carregar os posts. Tente novamente mais tarde.</p>';
-        }
+        blogContainer.innerHTML = '<p class="text-danger">Não foi possível carregar os posts. Tente novamente mais tarde.</p>';
     }
 }
 
@@ -110,10 +142,9 @@ function renderPosts(posts) {
     const featuredPostContainer = document.querySelector('.blog-post.featured');
     const blogGridContainer = document.querySelector('.blog-grid');
     
-    // Limpa os posts existentes
     if (featuredPostContainer) {
+        featuredPostContainer.style.display = 'none';
         featuredPostContainer.innerHTML = '';
-        featuredPostContainer.style.display = 'none'; // Oculta o container até que um post seja adicionado
     }
     if (blogGridContainer) {
         blogGridContainer.innerHTML = '';
@@ -121,14 +152,14 @@ function renderPosts(posts) {
 
     if (!posts || posts.length === 0) {
         if (blogGridContainer) {
-            blogGridContainer.innerHTML = '<p>Nenhum post encontrado.</p>';
+            blogGridContainer.innerHTML = '<p class="text-center text-gray-500">Nenhum post encontrado.</p>';
         }
         return;
     }
 
     // Renderiza o primeiro post como destaque
     const featuredPost = posts[0];
-    if (featuredPostContainer) {
+    if (featuredPostContainer && featuredPost) {
         featuredPostContainer.innerHTML = createPostHTML(featuredPost);
         featuredPostContainer.dataset.category = featuredPost.category;
         featuredPostContainer.style.display = 'block';
@@ -146,19 +177,42 @@ function renderPosts(posts) {
         });
     }
 
-    // Atualiza a animação AOS após a renderização dos posts
     AOS.refresh();
 }
 
+function renderPagination(totalPages, currentPage) {
+    const paginationElement = document.getElementById('pagination');
+    if (!paginationElement) return;
+
+    paginationElement.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.className = `py-2 px-4 rounded-full font-bold mx-1 transition-all duration-300 ${i === currentPage ? 'bg-blue-500 text-white shadow-lg' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`;
+        button.addEventListener('click', () => {
+            currentPage = i;
+            fetchPosts();
+        });
+        paginationElement.appendChild(button);
+    }
+}
+
+async function handleSearchPosts(e) {
+    e.preventDefault();
+    const searchTerm = document.getElementById('search-input').value;
+    currentSearchTerm = searchTerm;
+    currentPage = 1; // Reseta a página para a primeira
+    fetchPosts();
+}
+
 function createPostHTML(post) {
-    const tagsHtml = post.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+    const tagsHtml = Array.isArray(post.tags) ? post.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
     
     return `
         <div class="post-header">
             <div class="post-meta">
                 <span class="post-date">${post.date}</span>
                 <span class="post-category">${post.category}</span>
-                <span class="post-read-time"><i class="fas fa-clock"></i> 5 min de leitura</span>
             </div>
             <h3>${post.title}</h3>
         </div>
