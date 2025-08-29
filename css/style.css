@@ -11,7 +11,7 @@
     --text-color: #212121; /* Cinza Quase Preto */
     --light-text-color: #f1f8e9; /* Verde-Claro para Texto em Fundo Escuro */
     --background-light: #f9fbe7; /* Fundo de Seções em Creme */
-    
+
     /* Sombras e Bordas Suaves */
     --shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     --hover-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -35,6 +35,7 @@ body {
     line-height: 1.7;
     color: var(--text-color);
     background-color: var(--secondary-color);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .container {
@@ -46,7 +47,6 @@ body {
 /* =======================================
    2. Layout Geral (Header, Main, Footer)
    ======================================= */
-/* Header e Navegação */
 header {
     background-color: var(--primary-color);
     color: var(--light-text-color);
@@ -57,20 +57,11 @@ header {
     z-index: 1000;
 }
 
-/* Conteúdo Principal */
 main {
     padding: 3rem 0;
 }
 
-.page-content {
-    background-color: var(--background-light);
-    padding: 2.5rem;
-    margin-top: 3rem;
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow);
-}
-
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'Merriweather', serif;
     color: var(--primary-color);
     margin-bottom: 1.25rem;
@@ -92,7 +83,6 @@ p {
     margin-bottom: 1.25rem;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 2.5rem;
@@ -104,13 +94,13 @@ footer {
 /* =======================================
    3. Estilos de Seções e Componentes
    ======================================= */
-/* Seções de Conteúdo (páginas internas) */
 .content-section {
     background-color: var(--background-light);
     padding: 2.5rem;
     border-radius: var(--border-radius-soft);
     box-shadow: var(--shadow);
     margin-bottom: 2.5rem;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Estilo para a descrição do modelo 3D */
@@ -124,14 +114,7 @@ footer {
     z-index: 10;
 }
 
-@media (min-width: 992px) {
-    .model-caption {
-        text-align: left;
-        padding-top: 1rem;
-    }
-}
-
-/* Estilos Específicos da Home */
+/* Seção de Destaque (Hero) */
 .hero-section {
     display: flex;
     flex-direction: column;
@@ -144,7 +127,6 @@ footer {
     overflow: hidden;
     position: relative;
     box-shadow: var(--shadow);
-    /* Estilo padrão para mobile e telas menores */
     height: auto;
     background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('../assets/images/hero-suape.jpg') no-repeat center center/cover;
 }
@@ -157,6 +139,7 @@ footer {
     box-shadow: var(--shadow);
     max-width: 90%;
     margin: -120px auto 0;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .hero-content h1 {
@@ -193,21 +176,8 @@ footer {
     transform: translateY(-5px) scale(1.05);
 }
 
-.secondary-cta {
-    background-color: transparent;
-    border: 2px solid var(--accent-color-green);
-    color: var(--accent-color-green);
-    transition: background-color 0.4s, color 0.4s, border-color 0.4s;
-}
-
-.secondary-cta:hover {
-    background-color: var(--accent-color-green);
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
 /* Cards (Destaques, Contato) */
-.highlight-cards, .contact-details {
+.highlight-cards, .contact-details, .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
@@ -215,7 +185,7 @@ footer {
     text-align: center;
 }
 
-.card, .contact-card {
+.card, .contact-card, .team-member {
     background-color: var(--background-light);
     border-radius: var(--border-radius-soft);
     box-shadow: var(--shadow);
@@ -223,11 +193,11 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s, background-color 0.4s ease;
     will-change: transform, box-shadow;
 }
 
-.card:hover, .contact-card:hover {
+.card:hover, .contact-card:hover, .team-member:hover {
     transform: translateY(-8px);
     box-shadow: var(--hover-shadow);
 }
@@ -274,8 +244,7 @@ footer {
     box-shadow: var(--shadow);
 }
 
-.data-table th,
-.data-table td {
+.data-table th, .data-table td {
     border: 1px solid #dcdcdc;
     padding: 15px;
     text-align: left;
@@ -295,20 +264,6 @@ footer {
     background-color: #e8f5e9;
 }
 
-.data-links a {
-    display: inline-block;
-    margin-right: 1.25rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.4s;
-    will-change: color;
-}
-
-.data-links a:hover {
-    color: var(--accent-color-green);
-}
-
 /* Estilos para Gráficos */
 .chart-container {
     padding: 2.5rem;
@@ -316,10 +271,6 @@ footer {
     border-radius: var(--border-radius-soft);
     box-shadow: var(--shadow);
     margin-bottom: 2.5rem;
-}
-
-.chart-container canvas {
-    max-width: 100%;
 }
 
 .chart-caption {
@@ -332,63 +283,116 @@ footer {
     border-radius: 0 8px 8px 0;
 }
 
-.chart-caption strong {
-    color: var(--primary-color);
-}
-
-/* Estilos para o item do YouTube Shorts */
-.youtube-shorts-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--secondary-color);
-    padding: 2rem;
+/* Publicações, Mídia e Listas */
+.publication-item, .other-media-item, .blog-post, .mentor-card {
+    background: var(--background-light);
     border-radius: var(--border-radius-soft);
+    box-shadow: var(--shadow);
+    padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.4s, box-shadow 0.4s;
-    will-change: transform, box-shadow;
-    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.4s ease;
+    border-left: 5px solid var(--accent-color-green);
 }
 
-.youtube-shorts-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+.publication-item:hover, .other-media-item:hover, .blog-post:hover, .mentor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
 }
 
-.youtube-shorts-item .media-description {
-    font-size: 1rem;
-    color: var(--text-color);
+.publication-icon, .media-icon {
+    width: 55px;
+    height: 55px;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.publications-list, .references-list, .glossary-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.metodologia-list {
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+    counter-reset: etapa;
+}
+
+.metodologia-list li {
     margin-bottom: 1.5rem;
-}
-
-.youtube-shorts-item .video-container {
+    padding-left: 2.2rem;
     position: relative;
-    width: 100%;
-    /* 16:9 Aspect Ratio para vídeos normais, mas 9:16 para shorts */
-    /* Para telas pequenas, vamos limitar a altura para não ficar muito grande */
-    max-width: 315px;
+    font-size: 1.08rem;
 }
 
-.youtube-shorts-item .video-container iframe {
+.metodologia-list li:before {
+    counter-increment: etapa;
+    content: counter(etapa) ".";
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Estilos para a seção "Sobre" (Equipe) */
+.team-member {
+    padding: 1.5rem 1rem;
+}
+
+.profile-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: var(--border-radius-circle);
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+/* Formulário de Contato */
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--tertiary-color);
+}
+
+.form-group input,
+.form-group textarea {
     width: 100%;
-    height: 560px; /* Mantém a altura fixa para o formato Shorts */
+    padding: 15px;
+    border: 1px solid #ccc;
     border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.4s, box-shadow 0.4s;
+    will-change: border-color, box-shadow;
 }
 
-/* Ajustes para o modo escuro */
-body.dark-mode .youtube-shorts-item {
-    background-color: var(--background-light);
-}
-
-body.dark-mode .youtube-shorts-item .media-description {
-    color: var(--text-color);
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color-green);
+    outline: none;
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.4);
 }
 
 /* =======================================
    4. Listas e Formulários
    ======================================= */
-/* Estilos de Listas e Itens */
 ul, ol {
     margin-left: 2.5rem;
     margin-bottom: 1.5rem;
@@ -448,7 +452,7 @@ ul, ol {
 
 .publication-item:hover, .other-media-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--hover-shadow);
 }
 
 .publication-icon, .media-icon {
