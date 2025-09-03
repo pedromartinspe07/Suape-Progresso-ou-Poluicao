@@ -9,6 +9,73 @@ const postsPerPage = 6;
 let currentSearchTerm = '';
 let currentCategory = 'all';
 
+// ====================================================================
+// Lógica de Ativação de Tema (Dark/Light Mode)
+// ====================================================================
+
+function applyTheme(isDarkMode) {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        // Verifica se o elemento existe antes de tentar acessá-lo
+        const toggle = document.getElementById('darkModeToggle');
+        if (toggle) {
+            toggle.checked = true;
+        }
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+        const toggle = document.getElementById('darkModeToggle');
+        if (toggle) {
+            toggle.checked = false;
+        }
+    }
+}
+
+const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    applyTheme(savedTheme === 'dark');
+} else {
+    applyTheme(userPrefersDark);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializa a biblioteca AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+    
+    // Adiciona evento de clique para rolagem suave para links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Lógica para alternar o tema com base no clique
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
     // ====================================================================
     // Código para buscar e renderizar posts do blog (Atualizado)
     // ====================================================================
@@ -35,6 +102,7 @@ let currentCategory = 'all';
             });
         }
     }
+});
 
 // ====================================================================
 // Funções de Gerenciamento de Posts
